@@ -62,10 +62,6 @@ namespace Pronounce
             //Speak button
             button.Click += Button_Click;
 
-            //Volume bar
-                SeekBar volumeBar = FindViewById<SeekBar>(Resource.Id.seekBar1);
-            volumeBar.SetOnSeekBarChangeListener();
-
         }
             // Overflow button
         public override bool OnCreateOptionsMenu(IMenu menu)
