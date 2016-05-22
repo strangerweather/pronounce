@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/rect">
+    <Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:minHeight="?android:attr/actionBarSize"
+        android:background="#ffc107"
+        android:titleTextColor="#ffffffff"
+        android:title="@string/ApplicationName" />
+    <TextView
+        android:text="Volume"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:gravity="center"
+        android:textColor="#ffffff" />
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar1"
+        android:thumbTint="#f5f5f5ff"
+        android:max="100" />
+    <Button
+        android:id="@+id/MyButton"
+        android:elevation="10dp"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/pronounce_button"
+        android:layout_marginBottom="50dp" />
+    <EditText
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText1"
+        android:cursorVisible="true" />
+    <Button
+        android:text="Clear"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/button1"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:background="@drawable/rect_buttons"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner1" />
+</LinearLayout>

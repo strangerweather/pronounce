@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<resources>
+
+    <style name="Pronounce" parent="Theme.Base">
+  
+  
+  
+    </style>
+
+      <style name="Theme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#0266C8</item>
+        <item name="colorPrimaryDark">#3F51B5</item>
+        <item name="colorAccent">#7986CB</item>
+        <item name="colorControlHighlight">#FFCA28</item>
+      </style>
+</resources>
