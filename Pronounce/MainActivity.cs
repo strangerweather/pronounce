@@ -8,6 +8,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Media;
 using Android.Content;
+using Android.Util;
 
 namespace Pronounce
 {
@@ -16,7 +17,9 @@ namespace Pronounce
     {
         private TextToSpeech tts;
         EditText editText;
-        
+        SeekBar _seekBarAlarm;
+        AudioManager mgr = null;
+
         // Interface method required for IOnInitListener
         void TextToSpeech.IOnInitListener.OnInit(OperationResult status)
         {
@@ -34,7 +37,7 @@ namespace Pronounce
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
             ActionBar.Title = "PRONOUNCE";
-            
+
 
             tts = new TextToSpeech(this.ApplicationContext, this);
             tts.SetLanguage(Java.Util.Locale.Default);
@@ -63,7 +66,7 @@ namespace Pronounce
             button.Click += Button_Click;
 
         }
-            // Overflow button
+        // Overflow button
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.Overflow, menu);
@@ -132,5 +135,6 @@ namespace Pronounce
         }
     }
 }
+
 
 

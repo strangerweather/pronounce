@@ -61,7 +61,6 @@
     <Compile Include="Options.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Volume.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
