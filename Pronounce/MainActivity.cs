@@ -37,6 +37,24 @@ namespace Pronounce
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
             ActionBar.Title = "PRONOUNCE";
+            
+
+            // Volume bar setup
+            mgr = (AudioManager)GetSystemService(Context.AudioService);
+
+            ////
+            _seekBarAlarm = FindViewById<SeekBar>(Resource.Id.seekBar1);
+
+            // modify the ring
+            initBar(_seekBarAlarm, Android.Media.Stream.Music);
+
+                /// <summary>
+                /// initBar
+                /// </summary>
+                /// <param name="bar"></param>
+                /// <param name="stream"></param>
+
+    
 
 
             tts = new TextToSpeech(this.ApplicationContext, this);
@@ -73,6 +91,60 @@ namespace Pronounce
             return base.OnCreateOptionsMenu(menu);
         }
 
+        // Volume bar
+        private void initBar(SeekBar bar, Android.Media.Stream stream)
+        {
+            //
+            bar.Max = mgr.GetStreamMaxVolume(stream);
+            bar.Progress = mgr.GetStreamVolume(stream);
+
+            //
+            bar.SetOnSeekBarChangeListener(new VolumeListener(mgr, stream));
+        }
+
+        public class VolumeListener : Java.Lang.Object, SeekBar.IOnSeekBarChangeListener
+        {
+            AudioManager audio;
+            Android.Media.Stream theStream;
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="mgr"></param>
+            public VolumeListener(AudioManager mgr, Android.Media.Stream stream)
+            {
+                // /!\ is it a correct way to pass information in the constructor ?
+                theStream = stream;
+                audio = mgr;
+            }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="seekBar"></param>
+            /// <param name="progress"></param>
+            /// <param name="fromUser"></param>
+            public void OnProgressChanged(SeekBar seekBar, int progress, bool fromUser)
+            {
+                if (fromUser)
+                {
+                    string.Format("The user adjusted the value of the SeekBar to {0}", seekBar.Progress);
+
+                    // play sound
+                    audio.SetStreamVolume(theStream, progress, VolumeNotificationFlags.PlaySound);
+
+                }
+            }
+            public void OnStartTrackingTouch(SeekBar seekBar)
+            {
+                System.Diagnostics.Debug.WriteLine("Tracking changes.");
+            }
+            public void OnStopTrackingTouch(SeekBar seekBar)
+            {
+                System.Diagnostics.Debug.WriteLine("Stopped tracking changes.");
+            }
+        }
+
+        // Choose language
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             return base.OnOptionsItemSelected(item);
@@ -134,6 +206,8 @@ namespace Pronounce
             }
         }
     }
+
+
 }
 
 
