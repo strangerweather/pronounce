@@ -9,33 +9,47 @@
         android:layout_height="wrap_content"
         android:elevation="4dp"
         android:minHeight="?android:attr/actionBarSize"
-        android:background="#689F38"
+        android:background="#184C62"
         android:titleTextColor="#ffffffff"
         android:title="@string/ApplicationName" />
-    <TextView
-        android:text="Volume"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+    <Toolbar
+        android:background="#4F769F"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:gravity="center"
-        android:textColor="#ffffff" />
-    <SeekBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/seekBar1"
-        android:thumbTint="#f5f5f5ff"
-        android:max="100" />
+        android:layout_height="100dp"
+        android:id="@+id/toolbar1"
+        android:elevation="4dp">
+        <TextView
+            android:text="Volume"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:gravity="left"
+            android:textColor="#212121"
+            android:paddingBottom="20dp"
+            android:layout_gravity="left"
+            android:textSize="15dp" />
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar1"
+            android:thumbTint="#f5f5dcff"
+            android:max="100" />
+    </Toolbar>
     <Button
+        android:text="PRONOUNCE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/MyButton"
-        android:elevation="10dp"
-        android:textColor="#ffffff"
-        android:textSize="15dp"
-        android:layout_gravity="center"
-        android:layout_width="250dp"
-        android:layout_height="140dp"
+        android:background="#4F769F"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_gravity="center_horizontal"
+        android:elevation="4dp"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp" />
+        android:layout_marginBottom="30dp"
+        android:textSize="20dp"
+        android:textColor="#ffffff" />
     <EditText
         android:inputType="textMultiLine"
         android:layout_width="match_parent"
@@ -44,16 +58,16 @@
         android:cursorVisible="true" />
     <Button
         android:text="Clear"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:id="@+id/button1"
-        android:layout_marginLeft="120dp"
-        android:layout_marginRight="120dp"
-        android:background="@drawable/rect_buttons"
         android:textColor="#ffffff"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginBottom="30dp"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:elevation="4dp"
+        android:background="#4F769F"
+        android:layout_gravity="center" />
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

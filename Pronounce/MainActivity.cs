@@ -36,7 +36,7 @@ namespace Pronounce
             //Toolbar will now take on default Action Bar characteristics
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
-            ActionBar.Title = "PRONOUNCE";
+            ActionBar.Title = "Pronounce";
             
 
             // Volume bar setup
