@@ -68,4 +68,8 @@
         android:elevation="4dp"
         android:background="#4F769F"
         android:layout_gravity="center" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner1" />
 </LinearLayout>

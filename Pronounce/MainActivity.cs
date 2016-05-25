@@ -32,6 +32,13 @@ namespace Pronounce
 
 
             SetContentView(Resource.Layout.Main);
+
+           //Status bar
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
+            {
+                Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+            }
+
             var toolbar = FindViewById<Toolbar>(Resource.Id.my_toolbar);
             //Toolbar will now take on default Action Bar characteristics
             SetActionBar(toolbar);
