@@ -9,9 +9,9 @@
     </style>
 
       <style name="Theme.Base" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#0266C8</item>
-        <item name="colorPrimaryDark">#3F51B5</item>
-        <item name="colorAccent">#7986CB</item>
+        <item name="colorPrimary">#8BC34A</item>
+        <item name="colorPrimaryDark">#689F38</item>
+        <item name="colorAccent">#FF9800</item>
         <item name="colorControlHighlight">#FFCA28</item>
       </style>
 </resources>
