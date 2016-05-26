@@ -9,6 +9,7 @@ using Android.Views;
 using Android.Media;
 using Android.Content;
 using Android.Util;
+using Android.Support.Design.Widget;
 
 namespace Pronounce
 {
@@ -70,16 +71,16 @@ namespace Pronounce
             Button button = FindViewById<Button>(Resource.Id.MyButton);
             Button clear_button = FindViewById<Button>(Resource.Id.button1);
 
-            // Spinner
-            Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
-
-            spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
-            var adapter = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.Languages, Android.Resource.Layout.SimpleSpinnerItem);
-
-
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spinner.Adapter = adapter;
+            //Bottom sheet
+            LinearLayout sheet = FindViewById<LinearLayout>(Resource.Id.bottom_sheet);
+            BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.From(sheet);
+            bottomSheetBehavior.PeekHeight = 300;
+            bottomSheetBehavior.Hideable = true;
+            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            fab.Click += (o, e) =>
+            {
+                bottomSheetBehavior.State = BottomSheetBehavior.StateCollapsed;
+            };
 
             //Clear button
             clear_button.Click += delegate
@@ -91,6 +92,8 @@ namespace Pronounce
             button.Click += Button_Click;
 
         }
+
+
         // Overflow button
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -174,48 +177,45 @@ namespace Pronounce
             }
         }
 
-        private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
-        {
-            Spinner spinner = (Spinner)sender;
+            //string toast = string.Format("{0}", spinner.GetItemAtPosition(e.Position));
+
+            //Toast.MakeText(this, toast, ToastLength.Long).Show();
+
+            //if (toast == "French")
+            //{
+            //    tts.SetLanguage(Locale.French);
+            //}
+            //else if (toast == "German")
+            //{
+            //    tts.SetLanguage(Locale.German);
+            //}
+            //else if (toast == "English (US)")
+            //{
+            //    tts.SetLanguage(Locale.Us);
+            //}
+            //else if (toast == "English (GB)")
+            //{
+            //    tts.SetLanguage(Locale.Uk);
+            //}
+            //else if (toast == "Italian")
+            //{
+            //    tts.SetLanguage(Locale.Italian);
+            //}
+            //else if (toast == "Japanese")
+            //{
+            //    tts.SetLanguage(Locale.Japanese);
+            //}
+            //else if (toast == "Korean")
+            //{
+            //    tts.SetLanguage(Locale.Korean);
+            //}
 
 
-            string toast = string.Format("{0}", spinner.GetItemAtPosition(e.Position));
-
-            Toast.MakeText(this, toast, ToastLength.Long).Show();
-
-            if (toast == "French")
-            {
-                tts.SetLanguage(Locale.French);
-            }
-            else if (toast == "German")
-            {
-                tts.SetLanguage(Locale.German);
-            }
-            else if (toast == "English (US)")
-            {
-                tts.SetLanguage(Locale.Us);
-            }
-            else if (toast == "English (GB)")
-            {
-                tts.SetLanguage(Locale.Uk);
-            }
-            else if (toast == "Italian")
-            {
-                tts.SetLanguage(Locale.Italian);
-            }
-            else if (toast == "Japanese")
-            {
-                tts.SetLanguage(Locale.Japanese);
-            }
-            else if (toast == "Korean")
-            {
-                tts.SetLanguage(Locale.Korean);
-            }
         }
     }
 
 
-}
+
 
 
 

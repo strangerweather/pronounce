@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:orientation="vertical"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent">
     <Toolbar
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
@@ -18,23 +20,23 @@
         android:layout_height="100dp"
         android:id="@+id/toolbar1"
         android:elevation="4dp">
-        <TextView
-            android:text="Volume"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView1"
-            android:gravity="left"
-            android:textColor="#212121"
-            android:paddingBottom="20dp"
-            android:layout_gravity="left"
-            android:textSize="15dp" />
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/seekBar1"
-            android:thumbTint="#f5f5dcff"
-            android:max="100" />
+      <TextView
+          android:text="Volume"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/textView1"
+          android:gravity="left"
+          android:textColor="#212121"
+          android:paddingBottom="20dp"
+          android:layout_gravity="left"
+          android:textSize="15dp" />
+      <SeekBar
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/seekBar1"
+          android:thumbTint="#f5f5dcff"
+          android:max="100" />
     </Toolbar>
     <Button
         android:text="PRONOUNCE"
@@ -68,8 +70,4 @@
         android:elevation="4dp"
         android:background="#4F769F"
         android:layout_gravity="center" />
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner1" />
-</LinearLayout>
+  </LinearLayout>
