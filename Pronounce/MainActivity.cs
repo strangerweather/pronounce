@@ -71,17 +71,6 @@ namespace Pronounce
             Button button = FindViewById<Button>(Resource.Id.MyButton);
             Button clear_button = FindViewById<Button>(Resource.Id.button1);
 
-            //Bottom sheet
-            LinearLayout sheet = FindViewById<LinearLayout>(Resource.Id.bottom_sheet);
-            BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.From(sheet);
-            bottomSheetBehavior.PeekHeight = 300;
-            bottomSheetBehavior.Hideable = true;
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += (o, e) =>
-            {
-                bottomSheetBehavior.State = BottomSheetBehavior.StateCollapsed;
-            };
-
             //Clear button
             clear_button.Click += delegate
             {
