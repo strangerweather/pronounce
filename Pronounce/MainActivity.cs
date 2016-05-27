@@ -89,6 +89,8 @@ namespace Pronounce
                 {
                     editText.Text = "";
                 }
+
+
             };
 
             //Speak button

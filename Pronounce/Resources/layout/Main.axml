@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/MyButton"
-        android:background="#4F769F"
+        android:background="@drawable/my_buttons"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:layout_gravity="center_horizontal"
@@ -52,13 +52,14 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="30dp"
         android:textSize="20dp"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff" />
     <EditText
         android:inputType="textMultiLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText1"
-        android:cursorVisible="true" />
+        android:cursorVisible="true"
+        android:layout_marginTop="30dp" />
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -72,8 +73,8 @@
             android:layout_marginBottom="30dp"
             android:layout_marginTop="5dp"
             android:elevation="4dp"
-            android:background="#4F769F"
-            android:layout_gravity="center"/>
+            android:background="@drawable/my_buttons"
+            android:layout_gravity="center" />
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -87,6 +88,7 @@
                 android:text="Languages"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#ffffff"
                 android:id="@+id/textView2"
                 android:gravity="center" />
             <FrameLayout
@@ -99,6 +101,7 @@
                     android:text="Text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textColor="#ffffff"
                     android:id="@+id/textView3" />
             </FrameLayout>
         </LinearLayout>

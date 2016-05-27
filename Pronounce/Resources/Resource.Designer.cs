@@ -1841,7 +1841,10 @@ namespace Pronounce
 			public const int icon = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int notification_template_icon_bg = 2130837582;
+			public const int my_buttons = 2130837582;
+			
+			// aapt resource value: 0x7f02004f
+			public const int notification_template_icon_bg = 2130837583;
 			
 			static Drawable()
 			{
