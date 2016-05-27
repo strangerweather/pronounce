@@ -39,21 +39,20 @@
             android:thumbTint="#f5f5dcff"
             android:max="100" />
     </Toolbar>
-  <Button
-      android:text="PRONOUNCE"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/MyButton"
-      android:background="#4F769F"
-      android:paddingLeft="20dp"
-      android:paddingRight="20dp"
-      android:layout_gravity="center_horizontal"
-      android:elevation="4dp"
-      android:layout_marginTop="50dp"
-      android:layout_marginBottom="30dp"
-      android:textSize="20dp"
-      android:textColor="#ffffff"/>
-        
+    <Button
+        android:text="PRONOUNCE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/MyButton"
+        android:background="#4F769F"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_gravity="center_horizontal"
+        android:elevation="4dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:textSize="20dp"
+        android:textColor="#ffffff"/>
     <EditText
         android:inputType="textMultiLine"
         android:layout_width="match_parent"
@@ -63,19 +62,18 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-      <Button
-          android:text="Clear"
-          android:layout_width="wrap_content"
-          android:layout_height="40dp"
-          android:id="@+id/button1"
-          android:textColor="#ffffff"
-          android:textSize="15dp"
-          android:layout_marginBottom="30dp"
-          android:layout_marginTop="30dp"
-          android:elevation="4dp"
-          android:background="#4F769F"
-          android:layout_gravity="center"/>
-
+        <Button
+            android:text="Clear"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/button1"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="5dp"
+            android:elevation="4dp"
+            android:background="#4F769F"
+            android:layout_gravity="center"/>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -109,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
-            android:src="@android:drawable/ic_menu_more"
+            android:src="@android:drawable/ic_dialog_map"
             app:layout_anchor="@id/bottom_sheet"
             app:layout_anchorGravity="top|right|end" />
     </android.support.design.widget.CoordinatorLayout>
