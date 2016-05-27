@@ -76,20 +76,14 @@ namespace Pronounce
             LinearLayout sheet = FindViewById<LinearLayout>(Resource.Id.bottom_sheet);
             BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.From(sheet);
 
-            bottomSheetBehavior.PeekHeight = 300;
-            bottomSheetBehavior.Hideable = true;
+            bottomSheetBehavior.PeekHeight = 100;
+            bottomSheetBehavior.Hideable = false;
 
             bottomSheetBehavior.SetBottomSheetCallback(new MyBottomSheetCallBack());
 
-            //    FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            //    fab.Click += (o, e) =>
-            //    {
-            //        bottomSheetBehavior.State = BottomSheetBehavior.StateCollapsed;
-            //    };
 
-       
-    //Clear button
-    clear_button.Click += delegate
+            //Clear button
+            clear_button.Click += delegate
             {
                 editText.Text = "";
             };
