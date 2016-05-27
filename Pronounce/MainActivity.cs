@@ -44,7 +44,7 @@ namespace Pronounce
             //Toolbar will now take on default Action Bar characteristics
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
-            ActionBar.Title = "Pronounce";
+            ActionBar.Title = "Just Pronounce";
 
 
             // Volume bar setup
@@ -85,7 +85,10 @@ namespace Pronounce
             //Clear button
             clear_button.Click += delegate
             {
-                editText.Text = "";
+                if (!string.IsNullOrEmpty(editText.Text))
+                {
+                    editText.Text = "";
+                }
             };
 
             //Speak button
