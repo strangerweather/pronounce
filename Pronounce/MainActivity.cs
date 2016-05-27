@@ -34,7 +34,7 @@ namespace Pronounce
 
             SetContentView(Resource.Layout.Main);
 
-           //Status bar
+            //Status bar
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
             {
                 Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
@@ -45,7 +45,7 @@ namespace Pronounce
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
             ActionBar.Title = "Pronounce";
-            
+
 
             // Volume bar setup
             mgr = (AudioManager)GetSystemService(Context.AudioService);
@@ -56,13 +56,13 @@ namespace Pronounce
             // modify the ring
             initBar(_seekBarAlarm, Android.Media.Stream.Music);
 
-                /// <summary>
-                /// initBar
-                /// </summary>
-                /// <param name="bar"></param>
-                /// <param name="stream"></param>
+            /// <summary>
+            /// initBar
+            /// </summary>
+            /// <param name="bar"></param>
+            /// <param name="stream"></param>
 
-    
+
 
 
             tts = new TextToSpeech(this.ApplicationContext, this);
@@ -71,8 +71,25 @@ namespace Pronounce
             Button button = FindViewById<Button>(Resource.Id.MyButton);
             Button clear_button = FindViewById<Button>(Resource.Id.button1);
 
-            //Clear button
-            clear_button.Click += delegate
+            //Bottom sheet
+
+            LinearLayout sheet = FindViewById<LinearLayout>(Resource.Id.bottom_sheet);
+            BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.From(sheet);
+
+            bottomSheetBehavior.PeekHeight = 300;
+            bottomSheetBehavior.Hideable = true;
+
+            bottomSheetBehavior.SetBottomSheetCallback(new MyBottomSheetCallBack());
+
+            //    FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            //    fab.Click += (o, e) =>
+            //    {
+            //        bottomSheetBehavior.State = BottomSheetBehavior.StateCollapsed;
+            //    };
+
+       
+    //Clear button
+    clear_button.Click += delegate
             {
                 editText.Text = "";
             };
@@ -166,42 +183,56 @@ namespace Pronounce
             }
         }
 
-            //string toast = string.Format("{0}", spinner.GetItemAtPosition(e.Position));
+        //string toast = string.Format("{0}", spinner.GetItemAtPosition(e.Position));
 
-            //Toast.MakeText(this, toast, ToastLength.Long).Show();
+        //Toast.MakeText(this, toast, ToastLength.Long).Show();
 
-            //if (toast == "French")
-            //{
-            //    tts.SetLanguage(Locale.French);
-            //}
-            //else if (toast == "German")
-            //{
-            //    tts.SetLanguage(Locale.German);
-            //}
-            //else if (toast == "English (US)")
-            //{
-            //    tts.SetLanguage(Locale.Us);
-            //}
-            //else if (toast == "English (GB)")
-            //{
-            //    tts.SetLanguage(Locale.Uk);
-            //}
-            //else if (toast == "Italian")
-            //{
-            //    tts.SetLanguage(Locale.Italian);
-            //}
-            //else if (toast == "Japanese")
-            //{
-            //    tts.SetLanguage(Locale.Japanese);
-            //}
-            //else if (toast == "Korean")
-            //{
-            //    tts.SetLanguage(Locale.Korean);
-            //}
+        //if (toast == "French")
+        //{
+        //    tts.SetLanguage(Locale.French);
+        //}
+        //else if (toast == "German")
+        //{
+        //    tts.SetLanguage(Locale.German);
+        //}
+        //else if (toast == "English (US)")
+        //{
+        //    tts.SetLanguage(Locale.Us);
+        //}
+        //else if (toast == "English (GB)")
+        //{
+        //    tts.SetLanguage(Locale.Uk);
+        //}
+        //else if (toast == "Italian")
+        //{
+        //    tts.SetLanguage(Locale.Italian);
+        //}
+        //else if (toast == "Japanese")
+        //{
+        //    tts.SetLanguage(Locale.Japanese);
+        //}
+        //else if (toast == "Korean")
+        //{
+        //    tts.SetLanguage(Locale.Korean);
+        //}
 
-
-        }
     }
+}
+
+public class MyBottomSheetCallBack : BottomSheetBehavior.BottomSheetCallback
+{
+    public override void OnSlide(View bottomSheet, float slideOffset)
+    {
+        //Sliding
+    }
+
+    public override void OnStateChanged(View bottomSheet, int newState)
+    {
+        //State changed
+    }
+}
+
+
 
 
 
