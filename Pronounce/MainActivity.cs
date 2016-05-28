@@ -71,6 +71,7 @@ namespace Pronounce
 
             Button button = FindViewById<Button>(Resource.Id.MyButton);
             Button clear_button = FindViewById<Button>(Resource.Id.button1);
+            editText = FindViewById<EditText>(Resource.Id.editText1);
 
             //Bottom sheet
 
@@ -185,7 +186,7 @@ namespace Pronounce
 
         private void Button_Click(object sender, EventArgs e)
         {
-            editText = FindViewById<EditText>(Resource.Id.editText1);
+            
             string text1 = editText.Text;
 
 
