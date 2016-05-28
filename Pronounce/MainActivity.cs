@@ -3,16 +3,12 @@ using Android.App;
 using Android.Widget;
 using Android.OS;
 using Android.Speech.Tts;
-using Java.Util;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Media;
 using Android.Content;
-using Android.Util;
 using Android.Support.Design.Widget;
 using Android.Content.Res;
-using Android.InputMethodServices;
-using Android.Views.InputMethods;
 
 namespace Pronounce
 {
