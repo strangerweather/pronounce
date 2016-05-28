@@ -11,6 +11,8 @@ using Android.Content;
 using Android.Util;
 using Android.Support.Design.Widget;
 using Android.Content.Res;
+using Android.InputMethodServices;
+using Android.Views.InputMethods;
 
 namespace Pronounce
 {
@@ -201,6 +203,8 @@ namespace Pronounce
                 tts.Speak(text1, QueueMode.Flush, null);
             }
         }
+
+
 
         //string toast = string.Format("{0}", spinner.GetItemAtPosition(e.Position));
 

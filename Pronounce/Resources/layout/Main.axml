@@ -68,7 +68,9 @@
                     android:layout_width="fill_parent"
                     android:layout_height="240dp"
                     android:orientation="vertical"
-                    android:padding="8dp">
+                    android:padding="8dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
                     <Button
                         android:text="PRONOUNCE"
                         android:layout_width="wrap_content"
@@ -92,7 +94,7 @@
                           android:layout_gravity="center"
                           android:inputType="textMultiLine"
                           android:id="@+id/editText1"
-                          android:cursorVisible="false"
+                          android:cursorVisible="true"
                           android:layout_marginTop="30dp"
                           android:hint="Type Word to Pronounce" />
                     </android.support.design.widget.TextInputLayout>
