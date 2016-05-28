@@ -147,7 +147,7 @@
     <Content Include="Resources\drawable\drawable-xhdpi\ic_swap.png" />
     <Content Include="Resources\drawable\drawable-xxhdpi\icon.png" />
     <Content Include="Resources\drawable\drawable-xxhdpi\ic_swap.png" />
-    <AndroidResource Include="Resources\drawable\drawable-xxxhdpi\icon.png" />
+    <Content Include="Resources\drawable\drawable-xxxhdpi\icon.png" />
     <Content Include="Resources\drawable\drawable-xxxhdpi\ic_swap.png" />
     <AndroidResource Include="Resources\values\Dimens.xml">
       <SubType>Designer</SubType>

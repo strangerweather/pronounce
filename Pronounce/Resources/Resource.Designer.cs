@@ -2195,8 +2195,8 @@ namespace Pronounce
 			// aapt resource value: 0x7f06004c
 			public const int scrollView = 2131099724;
 			
-			// aapt resource value: 0x7f060076
-			public const int scrollView1 = 2131099766;
+			// aapt resource value: 0x7f060073
+			public const int scrollView1 = 2131099763;
 			
 			// aapt resource value: 0x7f060039
 			public const int scrollable = 2131099705;
@@ -2231,8 +2231,8 @@ namespace Pronounce
 			// aapt resource value: 0x7f060067
 			public const int search_voice_btn = 2131099751;
 			
-			// aapt resource value: 0x7f060075
-			public const int seekBar1 = 2131099765;
+			// aapt resource value: 0x7f060076
+			public const int seekBar1 = 2131099766;
 			
 			// aapt resource value: 0x7f060068
 			public const int select_dialog_listview = 2131099752;
@@ -2294,8 +2294,8 @@ namespace Pronounce
 			// aapt resource value: 0x7f06004d
 			public const int textSpacerNoButtons = 2131099725;
 			
-			// aapt resource value: 0x7f060074
-			public const int textView1 = 2131099764;
+			// aapt resource value: 0x7f060075
+			public const int textView1 = 2131099765;
 			
 			// aapt resource value: 0x7f06007c
 			public const int textView2 = 2131099772;
@@ -2312,8 +2312,8 @@ namespace Pronounce
 			// aapt resource value: 0x7f060048
 			public const int title_template = 2131099720;
 			
-			// aapt resource value: 0x7f060073
-			public const int toolbar1 = 2131099763;
+			// aapt resource value: 0x7f060074
+			public const int toolbar1 = 2131099764;
 			
 			// aapt resource value: 0x7f060032
 			public const int top = 2131099698;
