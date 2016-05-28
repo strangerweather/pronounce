@@ -11,6 +11,7 @@ using Android.Content;
 using Android.Util;
 using Android.Support.Design.Widget;
 
+
 namespace Pronounce
 {
     [Activity(Label = "Pronounce", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/Pronounce")]
