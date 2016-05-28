@@ -10,7 +10,7 @@ using Android.Media;
 using Android.Content;
 using Android.Util;
 using Android.Support.Design.Widget;
-
+using Android.Content.Res;
 
 namespace Pronounce
 {
@@ -34,6 +34,8 @@ namespace Pronounce
 
 
             SetContentView(Resource.Layout.Main);
+
+
 
             //Status bar
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
@@ -77,11 +79,27 @@ namespace Pronounce
             LinearLayout sheet = FindViewById<LinearLayout>(Resource.Id.bottom_sheet);
             BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.From(sheet);
 
-            bottomSheetBehavior.PeekHeight = 100;
+            var metrics = Resources.DisplayMetrics;
+            var heightInDp = ConvertPixelsToDp(metrics.HeightPixels);
+
+            if (heightInDp <= 731)
+            {
+                // it's a phone
+                bottomSheetBehavior.PeekHeight = 100;
+            }
+            else
+            {
+                // it's a tablet
+                bottomSheetBehavior.PeekHeight = 360;
+            }
+
             bottomSheetBehavior.Hideable = false;
 
             bottomSheetBehavior.SetBottomSheetCallback(new MyBottomSheetCallBack());
 
+
+            //Speak button
+            button.Click += Button_Click;
 
             //Clear button
             clear_button.Click += delegate
@@ -90,15 +108,16 @@ namespace Pronounce
                 {
                     editText.Text = "";
                 }
-
-
             };
-
-            //Speak button
-            button.Click += Button_Click;
-
         }
 
+
+
+        private int ConvertPixelsToDp(float pixelValue)
+        {
+            var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
+            return dp;
+        }
 
         // Overflow button
         public override bool OnCreateOptionsMenu(IMenu menu)
