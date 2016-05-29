@@ -9,6 +9,7 @@ using Android.Media;
 using Android.Content;
 using Android.Support.Design.Widget;
 using Android.Content.Res;
+using System.Linq;
 
 namespace Pronounce
 {
@@ -45,7 +46,7 @@ namespace Pronounce
             //Toolbar will now take on default Action Bar characteristics
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
-            ActionBar.Title = "Just Pronounce";
+            ActionBar.Title = "Pronounce";
 
 
             // Volume bar setup
@@ -109,7 +110,6 @@ namespace Pronounce
                 }
             };
         }
-
 
 
         private int ConvertPixelsToDp(float pixelValue)
