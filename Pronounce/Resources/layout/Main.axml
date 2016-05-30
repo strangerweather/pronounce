@@ -1,243 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
+ <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <Toolbar
-        android:id="@+id/my_toolbar"
+  <Toolbar
+      android:id="@+id/my_toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:elevation="4dp"
+      android:minHeight="?android:attr/actionBarSize"
+      android:background="#184C62"
+      android:titleTextColor="#ffffffff"
+      android:title="@string/ApplicationName"
+      app:layout_scrollFlags="scroll|enterAlways" />
+  <android.support.design.widget.CoordinatorLayout
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="4dp"
-        android:minHeight="?android:attr/actionBarSize"
-        android:background="#184C62"
-        android:titleTextColor="#ffffffff"
-        android:title="@string/ApplicationName"
-        app:layout_scrollFlags="scroll|enterAlways" />
-        <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ScrollView
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="50dp"
-            android:id="@+id/scrollView1">
-            <TableLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:stretchColumns="1">
-                <Toolbar
-                    android:background="#4F769F"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:id="@+id/toolbar1"
-                    android:elevation="4dp">
-                    <TextView
-                        android:text="Volume"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView1"
-                        android:gravity="left"
-                        android:textColor="#212121"
-                        android:paddingBottom="20dp"
-                        android:layout_gravity="left"
-                        android:textSize="15dp" />
-                    <SeekBar
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/seekBar1"
-                        android:thumbTint="#f5f5dcff"
-                        android:max="100" />
-                </Toolbar>
-                <android.support.v7.widget.CardView
-                    android:id="@+id/card_view"
-                    android:layout_width="fill_parent"
-                    android:layout_height="245dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    app:cardElevation="4dp"
-                    app:cardCornerRadius="5dp">
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="240dp"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true">
-                        <Button
-                            android:text="PRONOUNCE"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/MyButton"
-                            android:background="@drawable/my_buttons"
-                            android:paddingLeft="20dp"
-                            android:paddingRight="20dp"
-                            android:layout_gravity="center_horizontal"
-                            android:elevation="4dp"
-                            android:layout_marginTop="40dp"
-                            android:textSize="20dp"
-                            android:textColor="#ffffff" />
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="10dp">
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:inputType="textMultiLine"
-                                android:id="@+id/editText1"
-                                android:cursorVisible="true"
-                                android:layout_marginTop="30dp"
-                                android:hint="Type Word to Pronounce" />
-                        </android.support.design.widget.TextInputLayout>
-                        <Button
-                            android:text="Clear"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:id="@+id/button1"
-                            android:textColor="#ffffff"
-                            android:textSize="15dp"
-                            android:layout_marginBottom="30dp"
-                            android:layout_marginTop="5dp"
-                            android:elevation="4dp"
-                            android:background="@drawable/my_buttons"
-                            android:layout_gravity="right" />
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-                <android.support.v7.widget.CardView
-                    android:id="@+id/card_view"
-                    android:layout_width="fill_parent"
-                    android:layout_height="245dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    app:cardElevation="4dp"
-                    app:cardCornerRadius="5dp">
-                  <LinearLayout 
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="13dp">
-                  <RadioGroup
-                          android:minWidth="25px"
-                          android:minHeight="25px"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:id="@+id/radioGroup1">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="English (GB)"
-                        android:layout_margin="13dp"
-                        android:id="@+id/radioButton1" />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="English (US)"
-                        android:layout_margin="13dp"
-                        android:id="@+id/radioButton2" />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="French"
-                        android:layout_margin="13dp"
-                        android:id="@+id/radioButton3" />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="German"
-                        android:layout_margin="13dp"
-                        android:id="@+id/radioButton4" />
-                    </RadioGroup>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="13dp">
-                      <RadioGroup
-                          android:minWidth="25px"
-                          android:minHeight="25px"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="170dp"
-                          android:id="@+id/radioGroup2">
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Italian"
-                        android:layout_margin="13dp"
-                        android:id="@+id/radioButton5" />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Japanese"
-                        android:layout_margin="13dp"
-                        android:id="@+id/radioButton6" />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Korean"
-                        android:layout_margin="13dp"
-                        android:id="@+id/radioButton7" />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Chinese"
-                        android:layout_margin="13dp"
-                        android:id="@+id/radioButton8" />
-                      </RadioGroup>
-                  </LinearLayout>
-                </android.support.v7.widget.CardView>
-            </TableLayout>
-        </ScrollView>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bottom_sheet"
-            android:padding="16dp"
-            android:elevation="6dp"
+        android:paddingBottom="50dp"
+        android:id="@+id/scrollView1">
+      <TableLayout
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:stretchColumns="1">
+        <Toolbar
             android:background="#4F769F"
-            app:layout_behavior="@string/bottom_sheet_behavior">
-            <TextView
-                android:text="Languages"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/toolbar1"
+            android:elevation="4dp">
+          <TextView
+              android:text="Volume"
+              android:textAppearance="?android:attr/textAppearanceMedium"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/textView1"
+              android:gravity="left"
+              android:textColor="#212121"
+              android:paddingBottom="20dp"
+              android:layout_gravity="left"
+              android:textSize="15dp" />
+          <SeekBar
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/seekBar1"
+              android:thumbTint="#f5f5dcff"
+              android:max="100" />
+        </Toolbar>
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="fill_parent"
+            android:layout_height="245dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="5dp">
+          <LinearLayout
+              android:layout_width="fill_parent"
+              android:layout_height="240dp"
+              android:orientation="vertical"
+              android:padding="8dp"
+              android:focusable="true"
+              android:focusableInTouchMode="true">
+            <Button
+                android:text="PRONOUNCE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/MyButton"
+                android:background="@drawable/my_buttons"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_gravity="center_horizontal"
+                android:elevation="4dp"
+                android:layout_marginTop="40dp"
+                android:textSize="20dp"
+                android:textColor="#ffffff" />
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="10dp">
+              <EditText
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:inputType="textMultiLine"
+                  android:id="@+id/editText1"
+                  android:cursorVisible="true"
+                  android:layout_marginTop="30dp"
+                  android:hint="Type Word to Pronounce" />
+            </android.support.design.widget.TextInputLayout>
+            <Button
+                android:text="Clear"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:id="@+id/button1"
                 android:textColor="#ffffff"
-                android:id="@+id/textView2"
-                android:gravity="center" />
-            <FrameLayout
-                android:minWidth="25px"
-                android:minHeight="25px"
+                android:textSize="15dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="5dp"
+                android:elevation="4dp"
+                android:background="@drawable/my_buttons"
+                android:layout_gravity="right" />
+          </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="fill_parent"
+            android:layout_height="245dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="5dp">
+          <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:id="@+id/frameLayout1">
-                <TextView
-                    android:text="Text"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColor="#ffffff"
-                    android:id="@+id/textView3" />
-            </FrameLayout>
-        </LinearLayout>
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            android:src="@android:drawable/ic_dialog_map"
-            app:layout_anchor="@id/bottom_sheet"
-            app:layout_anchorGravity="top|right|end" />
-    </android.support.design.widget.CoordinatorLayout>
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13dp">
+           </LinearLayout>
+        </android.support.v7.widget.CardView>
+      </TableLayout>
+    </ScrollView>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_sheet"
+        android:padding="16dp"
+        android:elevation="6dp"
+        android:background="#4F769F"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+      <TextView
+          android:text="Languages"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textColor="#ffffff"
+          android:id="@+id/textView2"
+          android:gravity="center" />
+      <FrameLayout
+          android:minWidth="25px"
+          android:minHeight="25px"
+          android:layout_width="match_parent"
+          android:layout_height="300dp"
+          android:id="@+id/frameLayout1">
+        <TextView
+            android:text="Text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#ffffff"
+            android:id="@+id/textView3" />
+      </FrameLayout>
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_swap1"
+        app:layout_anchor="@id/bottom_sheet"
+        app:layout_anchorGravity="top|right|end" />
+  </android.support.design.widget.CoordinatorLayout>
+  <android.support.design.widget.NavigationView
+    android:id="@+id/nav_view"
+        android:layout_height="match_parent"
+        android:layout_width="325dp"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_view" />
 </LinearLayout>
+ </android.support.v4.widget.DrawerLayout> 
+
+
+

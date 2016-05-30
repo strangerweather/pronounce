@@ -95,6 +95,12 @@
     <AndroidResource Include="Resources\layout\Options.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\nav_header.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\menu\drawer_view.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -110,6 +116,10 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <XamarinComponentReference Include="xamandroidsupportv4-18">
+      <Visible>False</Visible>
+      <Version>23.1.1.1</Version>
+    </XamarinComponentReference>
     <XamarinComponentReference Include="xamandroidsupportv7appcompat">
       <Visible>False</Visible>
       <Version>23.1.1.1</Version>
@@ -135,24 +145,30 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon.png" />
+    <AndroidResource Include="Resources\drawable\icon1.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\design_fab_background.xml" />
-    <Content Include="Resources\drawable\drawable-hdpi\icon.png" />
-    <Content Include="Resources\drawable\drawable-hdpi\ic_swap.png" />
-    <Content Include="Resources\drawable\drawable-mdpi\icon.png" />
-    <Content Include="Resources\drawable\drawable-mdpi\ic_swap.png" />
-    <Content Include="Resources\drawable\drawable-xhdpi\icon.png" />
-    <Content Include="Resources\drawable\drawable-xhdpi\ic_swap.png" />
-    <Content Include="Resources\drawable\drawable-xxhdpi\icon.png" />
-    <Content Include="Resources\drawable\drawable-xxhdpi\ic_swap.png" />
-    <Content Include="Resources\drawable\drawable-xxxhdpi\icon.png" />
-    <Content Include="Resources\drawable\drawable-xxxhdpi\ic_swap.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\icon1.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_menu1.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_swap1.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\icon1.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_menu1.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_swap1.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icon1.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_menu1.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_swap1.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon1.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_menu1.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_swap1.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\icon1.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_menu1.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_swap1.png" />
     <AndroidResource Include="Resources\values\Dimens.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\my_buttons.xml" />
+    <AndroidResource Include="Resources\drawable\landscape.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

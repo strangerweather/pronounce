@@ -9,17 +9,19 @@ using Android.Media;
 using Android.Content;
 using Android.Support.Design.Widget;
 using Android.Content.Res;
-using System.Linq;
+using Android.Support.V4.Widget;
+
 
 namespace Pronounce
 {
-    [Activity(Label = "Pronounce", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/Pronounce")]
+    [Activity(Label = "Pronounce", MainLauncher = true, Icon = "@drawable/icon1", Theme = "@style/Pronounce")]
     public class MainActivity : AppCompatActivity, TextToSpeech.IOnInitListener
     {
         private TextToSpeech tts;
         EditText editText;
         SeekBar _seekBarAlarm;
         AudioManager mgr = null;
+        private DrawerLayout mDrawerLayout;
 
         // Interface method required for IOnInitListener
         void TextToSpeech.IOnInitListener.OnInit(OperationResult status)
@@ -34,8 +36,6 @@ namespace Pronounce
 
             SetContentView(Resource.Layout.Main);
 
-
-
             //Status bar
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
             {
@@ -47,7 +47,19 @@ namespace Pronounce
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
             ActionBar.Title = "Pronounce";
+            Android.App.ActionBar ab = ActionBar;
+            ab.SetHomeAsUpIndicator(Resource.Drawable.ic_menu1);
+            ab.SetDisplayHomeAsUpEnabled(true);
 
+
+            //Drawer
+            mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+
+            NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
+            if (navigationView != null)
+            {
+                SetUpDrawerContent(navigationView);
+            }
 
             // Volume bar setup
             mgr = (AudioManager)GetSystemService(Context.AudioService);
@@ -63,10 +75,10 @@ namespace Pronounce
             /// </summary>
             /// <param name="bar"></param>
             /// <param name="stream"></param>
+            /// 
 
 
-
-
+            //tts
             tts = new TextToSpeech(this.ApplicationContext, this);
             tts.SetLanguage(Java.Util.Locale.Default);
 
@@ -111,11 +123,20 @@ namespace Pronounce
             };
         }
 
-
         private int ConvertPixelsToDp(float pixelValue)
         {
             var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
             return dp;
+        }
+
+        // Drawer contents
+        private void SetUpDrawerContent(NavigationView navigationView)
+        {
+            navigationView.NavigationItemSelected += (object sender, NavigationView.NavigationItemSelectedEventArgs e) =>
+            {
+                e.MenuItem.SetChecked(true);
+                mDrawerLayout.CloseDrawers();
+            };
         }
 
         // Overflow button
@@ -177,6 +198,7 @@ namespace Pronounce
                 System.Diagnostics.Debug.WriteLine("Stopped tracking changes.");
             }
         }
+
 
         // Choose language
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -251,6 +273,8 @@ public class MyBottomSheetCallBack : BottomSheetBehavior.BottomSheetCallback
         //State changed
     }
 }
+
+
 
 
 
