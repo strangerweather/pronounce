@@ -4,25 +4,24 @@
   <group android:checkableBehavior="single">
     <item
         android:id="@+id/nav_home"
-        android:title="Home" />
+        android:title="English (GB)" />
     <item
         android:id="@+id/nav_messages"
-        android:title="Messages" />
+        android:title="English (US)" />
     <item
         android:id="@+id/nav_friends"
-        android:title="Friends" />
+        android:title="French" />
     <item
         android:id="@+id/nav_discussion"
-        android:title="Discussion" />
+        android:title="German" />
+    <item
+        android:id="@+id/nav_discussion"
+        android:title="Italian" />
+    <item
+        android:id="@+id/nav_discussion"
+        android:title="Japanese" />
+    <item
+        android:id="@+id/nav_discussion"
+        android:title="Korean" />
   </group>
-
-  <item android:title="Sub items">
-    <menu>
-      <item
-          android:title="Sub item 1" />
-      <item
-          android:title="Sub item 2" />
-    </menu>
-  </item>
-
 </menu>

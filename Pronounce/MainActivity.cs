@@ -110,8 +110,8 @@ namespace Pronounce
             bottomSheetBehavior.SetBottomSheetCallback(new MyBottomSheetCallBack());
 
 
-            //Speak button
-            button.Click += Button_Click;
+            ////Speak button
+            //button.Click += Button_Click;
 
             //Clear button
             clear_button.Click += delegate
@@ -127,6 +127,20 @@ namespace Pronounce
         {
             var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
             return dp;
+        }
+
+        //Open drawer
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    mDrawerLayout.OpenDrawer((int)GravityFlags.Left);
+                    return true;
+
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
         }
 
         // Drawer contents
@@ -200,28 +214,28 @@ namespace Pronounce
         }
 
 
-        // Choose language
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            return base.OnOptionsItemSelected(item);
-        }
+//        // Choose language
+//        public override bool OnOptionsItemSelected(IMenuItem item)
+//        {
+//            return base.OnOptionsItemSelected(item);
+//        }
 
-        private void Button_Click(object sender, EventArgs e)
-        {
+//        private void Button_Click(object sender, EventArgs e)
+//        {
             
-            string text1 = editText.Text;
+//            string text1 = editText.Text;
 
 
-            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
-            {
-                tts.Speak(text1, QueueMode.Flush, null, null);
-            }
-            else
-            {
-#pragma warning disable
-                tts.Speak(text1, QueueMode.Flush, null);
-            }
-        }
+//            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
+//            {
+//                tts.Speak(text1, QueueMode.Flush, null, null);
+//            }
+//            else
+//            {
+//#pragma warning disable
+//                tts.Speak(text1, QueueMode.Flush, null);
+//            }
+//        }
 
 
 
