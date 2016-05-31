@@ -10,7 +10,8 @@ using Android.Content;
 using Android.Support.Design.Widget;
 using Android.Content.Res;
 using Android.Support.V4.Widget;
-
+using Android.Util;
+using Java.Util;
 
 namespace Pronounce
 {
@@ -64,7 +65,7 @@ namespace Pronounce
                 SetUpDrawerContent(navigationView);
             }
 
-            //RadioGroups
+            //RadioGroups in two columns
             rg1 = (RadioGroup)FindViewById(Resource.Id.RadioGroup1);
             rg2 = (RadioGroup)FindViewById(Resource.Id.RadioGroup2);
             rg1.CheckedChange += Rg1_CheckedChange;
@@ -74,6 +75,26 @@ namespace Pronounce
             int chkId1 = rg1.CheckedRadioButtonId;
             int chkId2 = rg2.CheckedRadioButtonId;
             int realCheck = chkId1 == -1 ? chkId2 : chkId1;
+
+            // Language chosen
+            RadioButton EnglishGB = FindViewById<RadioButton>(Resource.Id.englishGB);
+            RadioButton EnglishUS = FindViewById<RadioButton>(Resource.Id.englishUS);
+            RadioButton French = FindViewById<RadioButton>(Resource.Id.French);
+            RadioButton German = FindViewById<RadioButton>(Resource.Id.German);
+            RadioButton Italian = FindViewById<RadioButton>(Resource.Id.Italian);
+            RadioButton Japanese = FindViewById<RadioButton>(Resource.Id.Japanese);
+            RadioButton Korean = FindViewById<RadioButton>(Resource.Id.Korean);
+            RadioButton Chinese = FindViewById<RadioButton>(Resource.Id.Chinese);
+
+            EnglishGB.Click += RadioButtonClick;
+            EnglishUS.Click += RadioButtonClick;
+            French.Click += RadioButtonClick;
+            German.Click += RadioButtonClick;
+            Italian.Click += RadioButtonClick;
+            Japanese.Click += RadioButtonClick;
+            Korean.Click += RadioButtonClick;
+            Chinese.Click += RadioButtonClick;
+
 
             // Volume bar setup
             mgr = (AudioManager)GetSystemService(Context.AudioService);
@@ -124,8 +145,8 @@ namespace Pronounce
             bottomSheetBehavior.SetBottomSheetCallback(new MyBottomSheetCallBack());
 
 
-            ////Speak button
-            //button.Click += Button_Click;
+            //Speak button
+            button.Click += Button_Click;
 
             //Clear button
             clear_button.Click += delegate
@@ -135,6 +156,47 @@ namespace Pronounce
                     editText.Text = "";
                 }
             };
+        }
+
+        //Event handler for radio buttons
+        private void RadioButtonClick(object sender, EventArgs e)
+        {
+            RadioButton rb = (RadioButton)sender;
+            Toast.MakeText(this, rb.Text, ToastLength.Long).Show();
+            string toast = string.Format("{0}", rb.Text);
+
+            if (toast == "French")
+            {
+                tts.SetLanguage(Locale.French);
+            }
+            else if (toast == "German")
+            {
+                tts.SetLanguage(Locale.German);
+            }
+            else if (toast == "English (US)")
+            {
+                tts.SetLanguage(Locale.Us);
+            }
+            else if (toast == "English (GB)")
+            {
+                tts.SetLanguage(Locale.Uk);
+            }
+            else if (toast == "Italian")
+            {
+                tts.SetLanguage(Locale.Italian);
+            }
+            else if (toast == "Japanese")
+            {
+                tts.SetLanguage(Locale.Japanese);
+            }
+            else if (toast == "Korean")
+            {
+                tts.SetLanguage(Locale.Korean);
+            }
+            else if (toast == "Chinese")
+            {
+                tts.SetLanguage(Locale.Chinese);
+            }
         }
 
         private int ConvertPixelsToDp(float pixelValue)
@@ -248,65 +310,24 @@ namespace Pronounce
         }
 
 
-//        // Choose language
-//        public override bool OnOptionsItemSelected(IMenuItem item)
-//        {
-//            return base.OnOptionsItemSelected(item);
-//        }
+        // Speak
+        private void Button_Click(object sender, EventArgs e)
+        {
 
-//        private void Button_Click(object sender, EventArgs e)
-//        {
-            
-//            string text1 = editText.Text;
+            string text1 = editText.Text;
 
 
-//            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
-//            {
-//                tts.Speak(text1, QueueMode.Flush, null, null);
-//            }
-//            else
-//            {
-//#pragma warning disable
-//                tts.Speak(text1, QueueMode.Flush, null);
-//            }
-//        }
-
-
-
-        //string toast = string.Format("{0}", spinner.GetItemAtPosition(e.Position));
-
-        //Toast.MakeText(this, toast, ToastLength.Long).Show();
-
-        //if (toast == "French")
-        //{
-        //    tts.SetLanguage(Locale.French);
-        //}
-        //else if (toast == "German")
-        //{
-        //    tts.SetLanguage(Locale.German);
-        //}
-        //else if (toast == "English (US)")
-        //{
-        //    tts.SetLanguage(Locale.Us);
-        //}
-        //else if (toast == "English (GB)")
-        //{
-        //    tts.SetLanguage(Locale.Uk);
-        //}
-        //else if (toast == "Italian")
-        //{
-        //    tts.SetLanguage(Locale.Italian);
-        //}
-        //else if (toast == "Japanese")
-        //{
-        //    tts.SetLanguage(Locale.Japanese);
-        //}
-        //else if (toast == "Korean")
-        //{
-        //    tts.SetLanguage(Locale.Korean);
-        //}
-
-    }
+            if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop)
+            {
+                tts.Speak(text1, QueueMode.Flush, null, null);
+            }
+            else
+            {
+#pragma warning disable
+                tts.Speak(text1, QueueMode.Flush, null);
+            }
+        }
+     }
 }
 
 public class MyBottomSheetCallBack : BottomSheetBehavior.BottomSheetCallback
