@@ -22,6 +22,9 @@ namespace Pronounce
         SeekBar _seekBarAlarm;
         AudioManager mgr = null;
         private DrawerLayout mDrawerLayout;
+        RadioGroup rg1;
+        RadioGroup rg2;
+
 
         // Interface method required for IOnInitListener
         void TextToSpeech.IOnInitListener.OnInit(OperationResult status)
@@ -60,6 +63,17 @@ namespace Pronounce
             {
                 SetUpDrawerContent(navigationView);
             }
+
+            //RadioGroups
+            rg1 = (RadioGroup)FindViewById(Resource.Id.RadioGroup1);
+            rg2 = (RadioGroup)FindViewById(Resource.Id.RadioGroup2);
+            rg1.CheckedChange += Rg1_CheckedChange;
+            rg2.CheckedChange += Rg2_CheckedChange;
+
+
+            int chkId1 = rg1.CheckedRadioButtonId;
+            int chkId2 = rg2.CheckedRadioButtonId;
+            int realCheck = chkId1 == -1 ? chkId2 : chkId1;
 
             // Volume bar setup
             mgr = (AudioManager)GetSystemService(Context.AudioService);
@@ -142,6 +156,26 @@ namespace Pronounce
                     return base.OnOptionsItemSelected(item);
             }
         }
+        //RadioGroups
+        void Rg1_CheckedChange(object sender, RadioGroup.CheckedChangeEventArgs e)
+        {
+            if (e.CheckedId != -1)
+            {
+                rg2.CheckedChange -= Rg2_CheckedChange;
+                rg2.ClearCheck();
+                rg2.CheckedChange += Rg2_CheckedChange;
+            }
+        }
+        void Rg2_CheckedChange(object sender, RadioGroup.CheckedChangeEventArgs e)
+        {
+            if (e.CheckedId != -1)
+            {
+                rg1.CheckedChange -= Rg1_CheckedChange;
+                rg1.ClearCheck();
+                rg1.CheckedChange += Rg1_CheckedChange;
+            }
+        }
+
 
         // Drawer contents
         private void SetUpDrawerContent(NavigationView navigationView)
