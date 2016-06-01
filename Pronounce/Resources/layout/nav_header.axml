@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
-  <ImageView
-      android:id="@+id/imgViewHeader"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:src="@drawable/landscape"
-      android:scaleType="centerCrop" />
+    <ImageView
+        android:id="@+id/imgViewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/landscape"
+        android:scaleType="centerCrop" />
 </FrameLayout>

@@ -27,6 +27,7 @@ namespace Pronounce
         RadioGroup rg2;
 
 
+
         // Interface method required for IOnInitListener
         void TextToSpeech.IOnInitListener.OnInit(OperationResult status)
         {
@@ -76,6 +77,8 @@ namespace Pronounce
             int chkId2 = rg2.CheckedRadioButtonId;
             int realCheck = chkId1 == -1 ? chkId2 : chkId1;
 
+            
+
             // Language chosen
             RadioButton EnglishGB = FindViewById<RadioButton>(Resource.Id.englishGB);
             RadioButton EnglishUS = FindViewById<RadioButton>(Resource.Id.englishUS);
@@ -121,6 +124,7 @@ namespace Pronounce
             Button clear_button = FindViewById<Button>(Resource.Id.button1);
             editText = FindViewById<EditText>(Resource.Id.editText1);
 
+
             //Bottom sheet
 
             LinearLayout sheet = FindViewById<LinearLayout>(Resource.Id.bottom_sheet);
@@ -144,7 +148,7 @@ namespace Pronounce
 
             bottomSheetBehavior.SetBottomSheetCallback(new MyBottomSheetCallBack());
 
-
+            
             //Speak button
             button.Click += Button_Click;
 
@@ -157,6 +161,8 @@ namespace Pronounce
                 }
             };
         }
+        //
+
 
         //Event handler for radio buttons
         private void RadioButtonClick(object sender, EventArgs e)
@@ -198,6 +204,7 @@ namespace Pronounce
                 tts.SetLanguage(Locale.Chinese);
             }
         }
+
 
         private int ConvertPixelsToDp(float pixelValue)
         {
@@ -342,13 +349,3 @@ public class MyBottomSheetCallBack : BottomSheetBehavior.BottomSheetCallback
         //State changed
     }
 }
-
-
-
-
-
-
-
-
-
-

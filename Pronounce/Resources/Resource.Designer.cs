@@ -1886,28 +1886,31 @@ namespace Pronounce
 			public const int abc_textfield_search_material = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int design_fab_background = 2130837579;
+			public const int custom_toast = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int design_snackbar_background = 2130837580;
+			public const int design_fab_background = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int ic_menu1 = 2130837581;
+			public const int design_snackbar_background = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int ic_swap1 = 2130837582;
+			public const int ic_menu1 = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int icon1 = 2130837583;
+			public const int ic_swap1 = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int landscape = 2130837584;
+			public const int icon1 = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int my_buttons = 2130837585;
+			public const int landscape = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int notification_template_icon_bg = 2130837586;
+			public const int my_buttons = 2130837586;
+			
+			// aapt resource value: 0x7f020053
+			public const int notification_template_icon_bg = 2130837587;
 			
 			static Drawable()
 			{
@@ -2177,8 +2180,8 @@ namespace Pronounce
 			// aapt resource value: 0x7f060090
 			public const int media_actions = 2131099792;
 			
-			// aapt resource value: 0x7f06009e
-			public const int menu_settings = 2131099806;
+			// aapt resource value: 0x7f06009f
+			public const int menu_settings = 2131099807;
 			
 			// aapt resource value: 0x7f06001d
 			public const int middle = 2131099677;
@@ -2189,20 +2192,23 @@ namespace Pronounce
 			// aapt resource value: 0x7f060016
 			public const int multiply = 2131099670;
 			
+			// aapt resource value: 0x7f06009a
+			public const int my_custom_toast = 2131099802;
+			
 			// aapt resource value: 0x7f060073
 			public const int my_toolbar = 2131099763;
 			
+			// aapt resource value: 0x7f06009e
+			public const int nav_discussion = 2131099806;
+			
 			// aapt resource value: 0x7f06009d
-			public const int nav_discussion = 2131099805;
-			
-			// aapt resource value: 0x7f06009c
-			public const int nav_friends = 2131099804;
-			
-			// aapt resource value: 0x7f06009a
-			public const int nav_home = 2131099802;
+			public const int nav_friends = 2131099805;
 			
 			// aapt resource value: 0x7f06009b
-			public const int nav_messages = 2131099803;
+			public const int nav_home = 2131099803;
+			
+			// aapt resource value: 0x7f06009c
+			public const int nav_messages = 2131099804;
 			
 			// aapt resource value: 0x7f06008b
 			public const int nav_view = 2131099787;
