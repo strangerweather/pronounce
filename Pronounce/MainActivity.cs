@@ -87,7 +87,7 @@ namespace Pronounce
             RadioButton Italian = FindViewById<RadioButton>(Resource.Id.Italian);
             RadioButton Japanese = FindViewById<RadioButton>(Resource.Id.Japanese);
             RadioButton Korean = FindViewById<RadioButton>(Resource.Id.Korean);
-            RadioButton Chinese = FindViewById<RadioButton>(Resource.Id.Chinese);
+            RadioButton Spanish = FindViewById<RadioButton>(Resource.Id.Spanish);
 
             EnglishGB.Click += RadioButtonClick;
             EnglishUS.Click += RadioButtonClick;
@@ -96,7 +96,7 @@ namespace Pronounce
             Italian.Click += RadioButtonClick;
             Japanese.Click += RadioButtonClick;
             Korean.Click += RadioButtonClick;
-            Chinese.Click += RadioButtonClick;
+            Spanish.Click += RadioButtonClick;
 
 
             // Volume bar setup
@@ -161,8 +161,6 @@ namespace Pronounce
                 }
             };
         }
-        //
-
 
         //Event handler for radio buttons
         private void RadioButtonClick(object sender, EventArgs e)
@@ -202,6 +200,11 @@ namespace Pronounce
             else if (toast == "Chinese")
             {
                 tts.SetLanguage(Locale.Chinese);
+            }
+            else if (toast == "Spanish")
+            {
+                Locale Spanish = new Locale("es", "ES");
+                tts.SetLanguage(Spanish);
             }
         }
 
