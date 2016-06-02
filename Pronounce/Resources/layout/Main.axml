@@ -132,67 +132,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="13dp" />
-                      <RadioGroup
-                            android:id="@+id/RadioGroup1"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_margin="13dp">
-                        <RadioButton android:id="@+id/englishGB"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="English (GB)"
-                            android:layout_margin="13dp"/>
-                        <RadioButton android:id="@+id/englishUS"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="13dp"
-                            android:text="English (US)" />
-                        <RadioButton android:id="@+id/French"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="13dp"
-                            android:text="French" />
-                        <RadioButton android:id="@+id/German"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginRight="13dp"
-                            android:layout_marginTop="13dp"
-                            android:text="German" />
-                      </RadioGroup>
-                      <RadioGroup
-                            android:id="@+id/RadioGroup2"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginLeft="170dp"
-                            android:layout_marginTop="13dp"
-                            android:layout_marginBottom="13dp">
-                        <RadioButton android:id="@+id/Italian"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="13dp"
-                            android:text="Italian" />
-                        <RadioButton android:id="@+id/Japanese"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="13dp"
-                            android:text="Japanese" />
-                        <RadioButton android:id="@+id/Korean"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="13dp"
-                            android:text="Korean" />
-                        <RadioButton android:id="@+id/Spanish"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginRight="13dp"
-                            android:layout_marginTop="13dp"
-                            android:text="Spanish" />
-                      </RadioGroup>
-                    </android.support.v7.widget.CardView>
+                        </android.support.v7.widget.CardView>
                 </TableLayout>
             </ScrollView>
             <LinearLayout

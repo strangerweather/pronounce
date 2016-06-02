@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android.App;
 using Android.Widget;
 using Android.OS;
@@ -12,6 +12,8 @@ using Android.Content.Res;
 using Android.Support.V4.Widget;
 using Android.Util;
 using Java.Util;
+using Java.Lang;
+using System.Collections.Generic;
 
 namespace Pronounce
 {
@@ -23,8 +25,7 @@ namespace Pronounce
         SeekBar _seekBarAlarm;
         AudioManager mgr = null;
         private DrawerLayout mDrawerLayout;
-        RadioGroup rg1;
-        RadioGroup rg2;
+        private NavigationView _navigationView;
 
 
 
@@ -66,39 +67,6 @@ namespace Pronounce
                 SetUpDrawerContent(navigationView);
             }
 
-            //RadioGroups in two columns
-            rg1 = (RadioGroup)FindViewById(Resource.Id.RadioGroup1);
-            rg2 = (RadioGroup)FindViewById(Resource.Id.RadioGroup2);
-            rg1.CheckedChange += Rg1_CheckedChange;
-            rg2.CheckedChange += Rg2_CheckedChange;
-
-
-            int chkId1 = rg1.CheckedRadioButtonId;
-            int chkId2 = rg2.CheckedRadioButtonId;
-            int realCheck = chkId1 == -1 ? chkId2 : chkId1;
-
-            
-
-            // Language chosen
-            RadioButton EnglishGB = FindViewById<RadioButton>(Resource.Id.englishGB);
-            RadioButton EnglishUS = FindViewById<RadioButton>(Resource.Id.englishUS);
-            RadioButton French = FindViewById<RadioButton>(Resource.Id.French);
-            RadioButton German = FindViewById<RadioButton>(Resource.Id.German);
-            RadioButton Italian = FindViewById<RadioButton>(Resource.Id.Italian);
-            RadioButton Japanese = FindViewById<RadioButton>(Resource.Id.Japanese);
-            RadioButton Korean = FindViewById<RadioButton>(Resource.Id.Korean);
-            RadioButton Spanish = FindViewById<RadioButton>(Resource.Id.Spanish);
-
-            EnglishGB.Click += RadioButtonClick;
-            EnglishUS.Click += RadioButtonClick;
-            French.Click += RadioButtonClick;
-            German.Click += RadioButtonClick;
-            Italian.Click += RadioButtonClick;
-            Japanese.Click += RadioButtonClick;
-            Korean.Click += RadioButtonClick;
-            Spanish.Click += RadioButtonClick;
-
-
             // Volume bar setup
             mgr = (AudioManager)GetSystemService(Context.AudioService);
 
@@ -120,10 +88,9 @@ namespace Pronounce
             tts = new TextToSpeech(this.ApplicationContext, this);
             tts.SetLanguage(Java.Util.Locale.Default);
 
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
+            Button dbutton = FindViewById<Button>(Resource.Id.MyButton);
             Button clear_button = FindViewById<Button>(Resource.Id.button1);
             editText = FindViewById<EditText>(Resource.Id.editText1);
-
 
             //Bottom sheet
 
@@ -148,9 +115,9 @@ namespace Pronounce
 
             bottomSheetBehavior.SetBottomSheetCallback(new MyBottomSheetCallBack());
 
-            
+
             //Speak button
-            button.Click += Button_Click;
+            dbutton.Click += Button_Click;
 
             //Clear button
             clear_button.Click += delegate
@@ -160,55 +127,36 @@ namespace Pronounce
                     editText.Text = "";
                 }
             };
+
+            //setup navigation view
+            _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
+
+            //handle navigation
+            _navigationView.NavigationItemSelected += (sender, e) =>
+            {
+                e.MenuItem.SetChecked(true);
+
+                switch (e.MenuItem.ItemId)
+                {
+                    case Resource.Id.french:
+                        Toast.MakeText(this, "French", ToastLength.Long).Show();
+                        tts.SetLanguage(Locale.French);
+                        break;
+                    case Resource.Id.german:
+                        Toast.MakeText(this, "German", ToastLength.Long).Show();
+                        tts.SetLanguage(Locale.German);
+                        break;
+                }
+            };
         }
 
-        //Event handler for radio buttons
-        private void RadioButtonClick(object sender, EventArgs e)
-        {
-            RadioButton rb = (RadioButton)sender;
-            Toast.MakeText(this, rb.Text, ToastLength.Long).Show();
-            string toast = string.Format("{0}", rb.Text);
-
-            if (toast == "French")
-            {
-                tts.SetLanguage(Locale.French);
-            }
-            else if (toast == "German")
-            {
-                tts.SetLanguage(Locale.German);
-            }
-            else if (toast == "English (US)")
-            {
-                tts.SetLanguage(Locale.Us);
-            }
-            else if (toast == "English (GB)")
-            {
-                tts.SetLanguage(Locale.Uk);
-            }
-            else if (toast == "Italian")
-            {
-                tts.SetLanguage(Locale.Italian);
-            }
-            else if (toast == "Japanese")
-            {
-                tts.SetLanguage(Locale.Japanese);
-            }
-            else if (toast == "Korean")
-            {
-                tts.SetLanguage(Locale.Korean);
-            }
-            else if (toast == "Chinese")
-            {
-                tts.SetLanguage(Locale.Chinese);
-            }
-            else if (toast == "Spanish")
-            {
-                Locale Spanish = new Locale("es", "ES");
-                tts.SetLanguage(Spanish);
-            }
-        }
+        //
+        //   METHODS
+        //
 
 
+
+        // Pixel conversion to dp
         private int ConvertPixelsToDp(float pixelValue)
         {
             var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
@@ -227,26 +175,7 @@ namespace Pronounce
                 default:
                     return base.OnOptionsItemSelected(item);
             }
-        }
-        //RadioGroups
-        void Rg1_CheckedChange(object sender, RadioGroup.CheckedChangeEventArgs e)
-        {
-            if (e.CheckedId != -1)
-            {
-                rg2.CheckedChange -= Rg2_CheckedChange;
-                rg2.ClearCheck();
-                rg2.CheckedChange += Rg2_CheckedChange;
-            }
-        }
-        void Rg2_CheckedChange(object sender, RadioGroup.CheckedChangeEventArgs e)
-        {
-            if (e.CheckedId != -1)
-            {
-                rg1.CheckedChange -= Rg1_CheckedChange;
-                rg1.ClearCheck();
-                rg1.CheckedChange += Rg1_CheckedChange;
-            }
-        }
+       }
 
 
         // Drawer contents
@@ -259,8 +188,9 @@ namespace Pronounce
             };
         }
 
-        // Overflow button
-        public override bool OnCreateOptionsMenu(IMenu menu)
+
+    // Overflow button
+    public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.Overflow, menu);
             return base.OnCreateOptionsMenu(menu);
@@ -337,7 +267,7 @@ namespace Pronounce
                 tts.Speak(text1, QueueMode.Flush, null);
             }
         }
-     }
+    }
 }
 
 public class MyBottomSheetCallBack : BottomSheetBehavior.BottomSheetCallback

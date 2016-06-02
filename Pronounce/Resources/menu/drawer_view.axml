@@ -1,43 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-  <group android:checkableBehavior="single">
-    <item
-        android:id="@+id/nav_englishGB"
-        android:title="English (GB)" />
-    <item
-        android:id="@+id/englishUS"
-        android:title="English (US)" />
-    <item
-        android:id="@+id/french"
-        android:title="French" />
-    <item
-        android:id="@+id/german"
-        android:title="German" />
-    <item
-        android:id="@+id/italian"
-        android:title="Italian" />
-    <item
-        android:id="@+id/japanese"
-        android:title="Japanese" />
-    <item
-        android:id="@+id/korean"
-        android:title="Korean" />
-    <item
-      android:id="@+id/chinese"
-      android:title="Chinese" />
-    <item
-  android:id="@+id/arabic"
-  android:title="Arabic" />
-    <item
-      android:id="@+id/spanish"
-      android:title="Spanish" />
-    <item
-       android:id="@+id/portuguese"
-       android:title="Portuguese" />
+<menu 
+xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
     <item
       android:id="@+id/albanian"
       android:title="Albanian" />
+    <item
+      android:id="@+id/arabic"
+      android:title="Arabic" />
     <item
       android:id="@+id/belarusian"
       android:title="Belarusian" />
@@ -48,6 +18,9 @@
       android:id="@+id/catalan"
       android:title="Catalan" />
     <item
+      android:id="@+id/chinese"
+      android:title="Chinese" />
+    <item
       android:id="@+id/croatian"
       android:title="Croatian" />
     <item
@@ -57,44 +30,65 @@
       android:id="@+id/danish"
       android:title="Danish" />
     <item
-android:id="@+id/dutch"
-android:title="Dutch" />
+      android:id="@+id/dutch"
+      android:title="Dutch" />
     <item
-android:id="@+id/estonian"
-android:title="Estonian" />
+      android:id="@+id/englishGB"
+      android:title="English (GB)" />
     <item
-android:id="@+id/finnish"
-android:title="Finnish" />
+      android:id="@+id/englishUS"
+      android:title="English (US)" />    
     <item
-android:id="@+id/greek"
-android:title="Greek" />
+      android:id="@+id/estonian"
+      android:title="Estonian" />
     <item
- android:id="@+id/hebrew"
- android:title="Hebrew" />
+      android:id="@+id/finnish"
+      android:title="Finnish" />
     <item
- android:id="@+id/hindi"
- android:title="Hindi" />
+        android:id="@+id/french"
+        android:title="French" />
     <item
- android:id="@+id/hungarian"
- android:title="Hungarian" />
+        android:id="@+id/german"
+        android:title="German" />
     <item
-    android:id="@+id/icelandic"
-    android:title="Icelandic" />
+      android:id="@+id/greek"
+      android:title="Greek" />
     <item
-    android:id="@+id/indonesian"
-    android:title="Indonesian" />
+       android:id="@+id/hebrew"
+       android:title="Hebrew" />
     <item
-    android:id="@+id/irish"
-    android:title="Irish" />
+       android:id="@+id/hindi"
+       android:title="Hindi" />
     <item
-    android:id="@+id/latvian"
-    android:title="Latvian" />
+       android:id="@+id/hungarian"
+       android:title="Hungarian" />
     <item
-    android:id="@+id/lithuanian"
-    android:title="Lithuanian" />
+        android:id="@+id/icelandic"
+        android:title="Icelandic" />
     <item
-    android:id="@+id/macedonian"
-    android:title="Macedonian" />
+        android:id="@+id/indonesian"
+        android:title="Indonesian" />
+    <item
+        android:id="@+id/irish"
+        android:title="Irish" />
+    <item
+        android:id="@+id/italian"
+        android:title="Italian" />
+    <item
+        android:id="@+id/japanese"
+        android:title="Japanese" />
+    <item
+        android:id="@+id/korean"
+        android:title="Korean" />
+    <item
+        android:id="@+id/latvian"
+        android:title="Latvian" />
+    <item
+        android:id="@+id/lithuanian"
+        android:title="Lithuanian" />
+    <item
+        android:id="@+id/macedonian"
+        android:title="Macedonian" />
     <item
         android:id="@+id/malay"
         android:title="Malay" />
@@ -107,6 +101,9 @@ android:title="Greek" />
     <item
         android:id="@+id/polish"
         android:title="Polish" />
+    <item
+         android:id="@+id/portuguese"
+         android:title="Portuguese" />
     <item
         android:id="@+id/romanian"
         android:title="Romanian" />
@@ -122,6 +119,9 @@ android:title="Greek" />
     <item
       android:id="@+id/slovenian"
       android:title="Slovenian" />
+    <item
+      android:id="@+id/spanish"
+      android:title="Spanish" />
     <item
         android:id="@+id/swedish"
         android:title="Swedish" />
