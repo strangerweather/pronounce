@@ -10,10 +10,14 @@ using Android.Content;
 using Android.Support.Design.Widget;
 using Android.Content.Res;
 using Android.Support.V4.Widget;
-using Android.Util;
 using Java.Util;
-using Java.Lang;
+using Android;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Android.Runtime;
+using System.Threading.Tasks;
+using Java.Lang;
 
 namespace Pronounce
 {
@@ -91,6 +95,7 @@ namespace Pronounce
             Button dbutton = FindViewById<Button>(Resource.Id.MyButton);
             Button clear_button = FindViewById<Button>(Resource.Id.button1);
             editText = FindViewById<EditText>(Resource.Id.editText1);
+            TextView firstString = FindViewById<TextView>(Resource.Id.textViewForLinks1);
 
             //Bottom sheet
 
@@ -464,7 +469,6 @@ namespace Pronounce
                 System.Diagnostics.Debug.WriteLine("Stopped tracking changes.");
             }
         }
-
 
         // Speak
         private void Button_Click(object sender, EventArgs e)
