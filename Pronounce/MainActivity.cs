@@ -95,7 +95,6 @@ namespace Pronounce
             Button dbutton = FindViewById<Button>(Resource.Id.MyButton);
             Button clear_button = FindViewById<Button>(Resource.Id.button1);
             editText = FindViewById<EditText>(Resource.Id.editText1);
-            TextView firstString = FindViewById<TextView>(Resource.Id.textViewForLinks1);
 
             //Bottom sheet
 
@@ -396,7 +395,7 @@ namespace Pronounce
                 default:
                     return base.OnOptionsItemSelected(item);
             }
-       }
+        }
 
 
         // Drawer contents
@@ -410,8 +409,8 @@ namespace Pronounce
         }
 
 
-    // Overflow button
-    public override bool OnCreateOptionsMenu(IMenu menu)
+        // Overflow button
+        public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.Overflow, menu);
             return base.OnCreateOptionsMenu(menu);
@@ -488,17 +487,17 @@ namespace Pronounce
             }
         }
     }
-}
 
-public class MyBottomSheetCallBack : BottomSheetBehavior.BottomSheetCallback
-{
-    public override void OnSlide(View bottomSheet, float slideOffset)
+    public class MyBottomSheetCallBack : BottomSheetBehavior.BottomSheetCallback
     {
-        //Sliding
-    }
+        public override void OnSlide(View bottomSheet, float slideOffset)
+        {
+            //Sliding
+        }
 
-    public override void OnStateChanged(View bottomSheet, int newState)
-    {
-        //State changed
+        public override void OnStateChanged(View bottomSheet, int newState)
+        {
+            //State changed
+        }
     }
 }
