@@ -26,9 +26,9 @@ namespace Pronounce
         private NavigationView _navigationView;
         List<string> items;
         ArrayAdapter<string> adapter;
-        EditText words;
 
-        
+
+
         // Interface method required for IOnInitListener
         void TextToSpeech.IOnInitListener.OnInit(OperationResult status)
         {
@@ -60,11 +60,18 @@ namespace Pronounce
 
             //History
             var listView = FindViewById<ListView>(Resource.Id.listView1);
-            words = FindViewById<EditText>(Resource.Id.editText1);
+            editText = FindViewById<EditText>(Resource.Id.editText1);
             items = new List<string>(new[] { "History" });
             adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, items);
             listView.Adapter = adapter;
             FindViewById<Button>(Resource.Id.MyButton).Click += HandleClick;
+            
+            listView.ItemClick += delegate (object sender, AdapterView.ItemClickEventArgs args)
+            {
+                editText.Text = ((TextView)args.View).Text;
+            };
+
+
 
             //Drawer
             mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
@@ -399,8 +406,8 @@ namespace Pronounce
         //History
         protected void HandleClick(object sender, EventArgs e)
         {
-            words = FindViewById<EditText>(Resource.Id.editText1);
-            adapter.Add(words.Text);
+            editText = FindViewById<EditText>(Resource.Id.editText1);
+            adapter.Add(editText.Text);
             adapter.NotifyDataSetChanged();
         }
 
