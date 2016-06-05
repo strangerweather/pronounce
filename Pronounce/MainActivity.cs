@@ -142,7 +142,6 @@ namespace Pronounce
             Button clear_history = FindViewById<Button>(Resource.Id.button3);
             clear_history.Click += delegate
             {
-                Android.Widget.Toast.MakeText(this, "I was clicked!", ToastLength.Short).Show();
                 adapter.Clear();
                 adapter.NotifyDataSetChanged();
             };
@@ -403,7 +402,6 @@ namespace Pronounce
             words = FindViewById<EditText>(Resource.Id.editText1);
             adapter.Add(words.Text);
             adapter.NotifyDataSetChanged();
-            Android.Widget.Toast.MakeText(this, "Method was called", ToastLength.Short).Show();
         }
 
         //Open drawer
