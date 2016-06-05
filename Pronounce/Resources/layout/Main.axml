@@ -128,58 +128,13 @@
                         android:layout_marginLeft="10dp"
                         app:cardElevation="4dp"
                         app:cardCornerRadius="5dp">
-                      <RelativeLayout 
-                        android:id="@+id/History"
+                        <ListView
+                    android:layout_margin="20dp"
+                    android:textColor="#184C62"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                        android:layout_margin="20dp">
-                        <TextView  
-                        android:text="Your"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:textColor="#184C62"
-                    android:id="@+id/link1"/>
-                        <TextView
-                        android:text="Pronounced"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                        android:layout_below="@+id/link1"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                    android:textColor="#184C62"
-                    android:id="@+id/link2"/>
-                        <TextView
-                          android:text="Words"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                          android:layout_below="@+id/link2"
-                          android:layout_marginLeft="100dp"
-                          android:layout_marginTop="10dp"
-                          android:layout_marginBottom="10dp"
-                    android:textColor="#184C62"
-                    android:id="@+id/link3"/>
-                        <TextView
-                    android:text="History"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/link3"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="#184C62"
-                    android:id="@+id/link4"/>
-                        <TextView
-                    android:text="Here"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/link4"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="#184C62"
-                    android:id="@+id/link5"/>
-                      </RelativeLayout>                         
+                    android:id="@+id/listView1">
+                      </ListView>
                       <Button
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -190,7 +145,7 @@
                     android:elevation="4dp"
                     android:background="@drawable/clear_all"
                     android:layout_gravity="right" />
-                        </android.support.v7.widget.CardView>
+                     </android.support.v7.widget.CardView>
                 </TableLayout>
             </ScrollView>
             <LinearLayout

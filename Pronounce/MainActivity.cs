@@ -11,13 +11,7 @@ using Android.Support.Design.Widget;
 using Android.Content.Res;
 using Android.Support.V4.Widget;
 using Java.Util;
-using Android;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Android.Runtime;
-using System.Threading.Tasks;
-using Java.Lang;
 
 namespace Pronounce
 {
@@ -30,9 +24,11 @@ namespace Pronounce
         AudioManager mgr = null;
         private DrawerLayout mDrawerLayout;
         private NavigationView _navigationView;
+        List<string> items;
+        ArrayAdapter<string> adapter;
+        EditText words;
 
-
-
+        
         // Interface method required for IOnInitListener
         void TextToSpeech.IOnInitListener.OnInit(OperationResult status)
         {
@@ -45,6 +41,7 @@ namespace Pronounce
 
 
             SetContentView(Resource.Layout.Main);
+
 
             //Status bar
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
@@ -61,6 +58,13 @@ namespace Pronounce
             ab.SetHomeAsUpIndicator(Resource.Drawable.ic_menu1);
             ab.SetDisplayHomeAsUpEnabled(true);
 
+            //History
+            var listView = FindViewById<ListView>(Resource.Id.listView1);
+            words = FindViewById<EditText>(Resource.Id.editText1);
+            items = new List<string>(new[] { "History" });
+            adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, items);
+            listView.Adapter = adapter;
+            FindViewById<Button>(Resource.Id.MyButton).Click += HandleClick;
 
             //Drawer
             mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
@@ -96,6 +100,7 @@ namespace Pronounce
             Button clear_button = FindViewById<Button>(Resource.Id.button1);
             editText = FindViewById<EditText>(Resource.Id.editText1);
 
+
             //Bottom sheet
 
             LinearLayout sheet = FindViewById<LinearLayout>(Resource.Id.bottom_sheet);
@@ -122,6 +127,7 @@ namespace Pronounce
 
             //Speak button
             dbutton.Click += Button_Click;
+            
 
             //Clear button
             clear_button.Click += delegate
@@ -132,6 +138,7 @@ namespace Pronounce
                 }
             };
 
+           
             //setup navigation view
             _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
 
@@ -374,13 +381,20 @@ namespace Pronounce
         //   METHODS
         //
 
-
-
         // Pixel conversion to dp
         private int ConvertPixelsToDp(float pixelValue)
         {
             var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
             return dp;
+        }
+
+        //History
+        protected void HandleClick(object sender, EventArgs e)
+        {
+            words = FindViewById<EditText>(Resource.Id.editText1);
+            adapter.Add(words.Text);
+            adapter.NotifyDataSetChanged();
+            Android.Widget.Toast.MakeText(this, "Method was called", ToastLength.Short).Show();
         }
 
         //Open drawer
