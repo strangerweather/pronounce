@@ -12,6 +12,8 @@ using Android.Content.Res;
 using Android.Support.V4.Widget;
 using Java.Util;
 using System.Collections.Generic;
+using System.Linq;
+using Android.Util;
 
 namespace Pronounce
 {
@@ -28,10 +30,33 @@ namespace Pronounce
         ArrayAdapter<string> adapter;
 
 
-
         // Interface method required for IOnInitListener
         void TextToSpeech.IOnInitListener.OnInit(OperationResult status)
         {
+            //Get available languages
+            var langAvailable = new List<string> { "Default" };
+            var localesAvailable = Java.Util.Locale.GetAvailableLocales().ToList();
+            foreach (var locale in localesAvailable)
+            {
+                var res = tts.IsLanguageAvailable(locale);
+                switch (res)
+                {
+                    case LanguageAvailableResult.Available:
+                        langAvailable.Add(locale.DisplayLanguage);
+                        break;
+                    case LanguageAvailableResult.CountryAvailable:
+                        langAvailable.Add(locale.DisplayLanguage);
+                        break;
+                    case LanguageAvailableResult.CountryVarAvailable:
+                        langAvailable.Add(locale.DisplayLanguage);
+                        break;
+                }
+            }
+
+            langAvailable = langAvailable.OrderBy(t => t).Distinct().ToList();
+            var listLanguages = FindViewById<ListView>(Resource.Id.listoflanguages);
+            var adapter2 = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, langAvailable);
+            listLanguages.Adapter = adapter2;
 
         }
 
@@ -119,7 +144,7 @@ namespace Pronounce
             if (heightInDp <= 731)
             {
                 // it's a phone
-                bottomSheetBehavior.PeekHeight = 100;
+                bottomSheetBehavior.PeekHeight = 120;
             }
             else
             {
@@ -153,7 +178,7 @@ namespace Pronounce
                 adapter.NotifyDataSetChanged();
             };
 
-           
+            
             //setup navigation view
             _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
 
@@ -392,6 +417,11 @@ namespace Pronounce
             };
         }
 
+        private void Dbutton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         //
         //   METHODS
         //
@@ -402,6 +432,7 @@ namespace Pronounce
             var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
             return dp;
         }
+
 
         //History
         protected void HandleClick(object sender, EventArgs e)

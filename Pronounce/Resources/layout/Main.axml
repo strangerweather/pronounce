@@ -126,8 +126,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginLeft="10dp"
-                        app:cardElevation="4dp"
-                        app:cardCornerRadius="5dp">
+                        app:cardElevation="4dp">
                         <ListView
                     android:layout_margin="20dp"
                     android:textColor="#184C62"
@@ -158,7 +157,7 @@
                 android:background="#4F769F"
                 app:layout_behavior="@string/bottom_sheet_behavior">
                 <TextView
-                    android:text="Languages"
+                    android:text="Instructions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#ffffff"
@@ -168,14 +167,23 @@
                     android:minWidth="25px"
                     android:minHeight="25px"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/frameLayout1">
                     <TextView
                         android:text="Text"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textColor="#ffffff"
-                        android:id="@+id/textView3" />
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/textView3">
+                  </TextView>
+                       <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="#ffffff"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/listoflanguages">
+                </ListView>
                 </FrameLayout>
             </LinearLayout>
             <android.support.design.widget.FloatingActionButton
