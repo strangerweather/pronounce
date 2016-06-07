@@ -13,7 +13,7 @@ using Android.Support.V4.Widget;
 using Java.Util;
 using System.Collections.Generic;
 using System.Linq;
-using Android.Util;
+
 
 namespace Pronounce
 {
@@ -28,13 +28,15 @@ namespace Pronounce
         private NavigationView _navigationView;
         List<string> items;
         ArrayAdapter<string> adapter;
-
+        Java.Util.Locale lang;
+        private readonly int NeedLang = 103;
+        
 
         // Interface method required for IOnInitListener
         void TextToSpeech.IOnInitListener.OnInit(OperationResult status)
         {
             //Get available languages
-            var langAvailable = new List<string> { "Default" };
+            var langAvailable = new List<string>();
             var localesAvailable = Java.Util.Locale.GetAvailableLocales().ToList();
             foreach (var locale in localesAvailable)
             {
@@ -51,14 +53,24 @@ namespace Pronounce
                         langAvailable.Add(locale.DisplayLanguage);
                         break;
                 }
-            }
+            } 
 
             langAvailable = langAvailable.OrderBy(t => t).Distinct().ToList();
             var listLanguages = FindViewById<ListView>(Resource.Id.listoflanguages);
             var adapter2 = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, langAvailable);
             listLanguages.Adapter = adapter2;
 
-        }
+                listLanguages.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
+            {
+                lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == langAvailable[(int)e.Id]);
+                // Do something with a click
+                Toast.MakeText(this, langAvailable[(int)e.Id].ToString(), ToastLength.Long).Show();
+                //        var checkTTSIntent = new Intent();
+                //checkTTSIntent.SetAction(TextToSpeech.Engine.ActionCheckTtsData);
+                //StartActivityForResult(checkTTSIntent, NeedLang);
+            };
+          }
+
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -178,13 +190,13 @@ namespace Pronounce
                 adapter.NotifyDataSetChanged();
             };
 
-            
+
             //setup navigation view
             _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
 
             //handle navigation
             _navigationView.NavigationItemSelected += (sender, e) =>
-            {
+            {            
                 e.MenuItem.SetChecked(true);
 
                 switch (e.MenuItem.ItemId)
@@ -417,11 +429,6 @@ namespace Pronounce
             };
         }
 
-        private void Dbutton_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         //
         //   METHODS
         //
@@ -432,6 +439,7 @@ namespace Pronounce
             var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
             return dp;
         }
+
 
 
         //History
@@ -543,6 +551,20 @@ namespace Pronounce
             {
 #pragma warning disable
                 tts.Speak(text1, QueueMode.Flush, null);
+            }
+        }
+
+
+
+        // Get new language if not already installed
+        protected override void OnActivityResult(int req, Result res, Intent data)
+        {
+            if (req == NeedLang)
+            {
+                // we need a new language installed
+                var installTTS = new Intent();
+                installTTS.SetAction(TextToSpeech.Engine.ActionInstallTtsData);
+                StartActivity(installTTS);
             }
         }
     }
