@@ -550,20 +550,6 @@ namespace Pronounce
                 tts.Speak(text1, QueueMode.Flush, null);
             }
         }
-
-
-
-        // Get new language if not already installed
-        protected override void OnActivityResult(int req, Result res, Intent data)
-        {
-            if (req == NeedLang)
-            {
-                // we need a new language installed
-                var installTTS = new Intent();
-                installTTS.SetAction(TextToSpeech.Engine.ActionInstallTtsData);
-                StartActivity(installTTS);
-            }
-        }
     }
 
     public class MyBottomSheetCallBack : BottomSheetBehavior.BottomSheetCallback
