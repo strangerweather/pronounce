@@ -65,9 +65,6 @@ namespace Pronounce
                 lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == langAvailable[(int)e.Id]);
                 // Do something with a click
                 Toast.MakeText(this, langAvailable[(int)e.Id].ToString(), ToastLength.Long).Show();
-                //        var checkTTSIntent = new Intent();
-                //checkTTSIntent.SetAction(TextToSpeech.Engine.ActionCheckTtsData);
-                //StartActivityForResult(checkTTSIntent, NeedLang);
             };
           }
 
