@@ -195,7 +195,6 @@
         android:layout_width="240dp"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        
         app:headerLayout="@layout/nav_header">
       <ListView
        android:layout_width="match_parent"

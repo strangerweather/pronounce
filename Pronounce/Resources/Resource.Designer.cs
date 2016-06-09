@@ -2595,10 +2595,7 @@ namespace Pronounce
 		{
 			
 			// aapt resource value: 0x7f0d0000
-			public const int list_item_selector = 2131558400;
-			
-			// aapt resource value: 0x7f0d0001
-			public const int Overflow = 2131558401;
+			public const int Overflow = 2131558400;
 			
 			static Menu()
 			{

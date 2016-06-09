@@ -13,7 +13,7 @@ using Android.Support.V4.Widget;
 using Java.Util;
 using System.Collections.Generic;
 using System.Linq;
-
+using Android.Util;
 
 namespace Pronounce
 {
@@ -29,12 +29,13 @@ namespace Pronounce
         List<string> items;
         ArrayAdapter<string> adapter;
         Java.Util.Locale lang;
-        
-        
 
+
+        
         // Interface method required for IOnInitListener
         void TextToSpeech.IOnInitListener.OnInit(OperationResult status)
         {
+
             //Get available languages
             var langAvailable = new List<string>();
             var localesAvailable = Java.Util.Locale.GetAvailableLocales().ToList();
@@ -44,30 +45,31 @@ namespace Pronounce
                 switch (res)
                 {
                     case LanguageAvailableResult.Available:
-                        langAvailable.Add(locale.DisplayLanguage);
+                        langAvailable.Add(locale.DisplayName);
                         break;
                     case LanguageAvailableResult.CountryAvailable:
-                        langAvailable.Add(locale.DisplayLanguage);
+                        langAvailable.Add(locale.DisplayName);
                         break;
                     case LanguageAvailableResult.CountryVarAvailable:
-                        langAvailable.Add(locale.DisplayLanguage);
+                        langAvailable.Add(locale.DisplayName);
                         break;
                 }
-            } 
+            }
 
             langAvailable = langAvailable.OrderBy(t => t).Distinct().ToList();
             var listLanguages = FindViewById<ListView>(Resource.Id.listoflanguages);
             var adapter2 = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, langAvailable);
             listLanguages.Adapter = adapter2;
 
-                listLanguages.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
-            {
-                lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == langAvailable[(int)e.Id]);
-                // Do something with a click
-                Toast.MakeText(this, langAvailable[(int)e.Id].ToString(), ToastLength.Long).Show();
-                mDrawerLayout.CloseDrawers();
-            };
-          }
+            listLanguages.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
+        {
+            lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == langAvailable[(int)e.Id]);
+            // Do something with a click
+            var languageSelected = langAvailable[(int)e.Id];
+            Toast.MakeText(this, languageSelected, ToastLength.Long).Show();
+            mDrawerLayout.CloseDrawers();
+        };
+   }
 
 
         protected override void OnCreate(Bundle bundle)
