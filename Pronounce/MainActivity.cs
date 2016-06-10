@@ -62,9 +62,6 @@ namespace Pronounce
             langAvailable = langAvailable.OrderBy(t => t).Distinct().ToList();
             var listLanguages = FindViewById<ListView>(Resource.Id.listoflanguages);
 
-            //Scrolling and Indexing Drawer Menu
-            listLanguages.FastScrollEnabled = true;
-
             var adapter2 = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, langAvailable);
             listLanguages.Adapter = adapter2;
 
