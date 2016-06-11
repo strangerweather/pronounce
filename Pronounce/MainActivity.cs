@@ -68,7 +68,6 @@ namespace Pronounce
             listLanguages.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
         {
             lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == langAvailable[(int)e.Id]);
-            // Do something with a click
             var languageSelected = langAvailable[(int)e.Id];
             Toast.MakeText(this, languageSelected, ToastLength.Long).Show();
             mDrawerLayout.CloseDrawers();
