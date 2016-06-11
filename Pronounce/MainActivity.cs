@@ -30,9 +30,6 @@ namespace Pronounce
         List<string> items;
         ArrayAdapter<string> adapter;
         Java.Util.Locale lang;
-        Dictionary<string, int> alphaIndex;
-        string[] sections;
-        Java.Lang.Object[] sectionsObjects;
 
 
         // Interface method required for IOnInitListener
