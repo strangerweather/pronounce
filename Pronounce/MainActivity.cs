@@ -48,13 +48,13 @@ namespace Pronounce
                 switch (res)
                 {
                     case LanguageAvailableResult.Available:
-                        langAvailable.Add(locale.DisplayName);
+                        langAvailable.Add(locale.DisplayLanguage);
                         break;
                     case LanguageAvailableResult.CountryAvailable:
-                        langAvailable.Add(locale.DisplayName);
+                        langAvailable.Add(locale.DisplayLanguage);
                         break;
                     case LanguageAvailableResult.CountryVarAvailable:
-                        langAvailable.Add(locale.DisplayName);
+                        langAvailable.Add(locale.DisplayLanguage);
                         break;
                 }
             }
@@ -70,6 +70,14 @@ namespace Pronounce
             lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == langAvailable[(int)e.Id]);
             var languageSelected = langAvailable[(int)e.Id];
             Toast.MakeText(this, languageSelected, ToastLength.Long).Show();
+
+            // if we get an error, default to the default language
+            if (status == OperationResult.Error)
+                tts.SetLanguage(Java.Util.Locale.Default);
+            // if the listener is ok, set the lang
+            if (status == OperationResult.Success)
+                tts.SetLanguage(lang);
+
             mDrawerLayout.CloseDrawers();
 
         };
