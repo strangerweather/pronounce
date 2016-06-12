@@ -35,10 +35,10 @@ namespace Pronounce
         // Interface method required for IOnInitListener
         void TextToSpeech.IOnInitListener.OnInit(OperationResult status)
         {
-
+            Toast.MakeText(this, Pronounce.Helpers.Settings.Language, ToastLength.Long).Show();
             //Get available languages
             var langAvailable = new List<string>();
-            var localesAvailable = Locale.GetAvailableLocales().ToList();
+            var localesAvailable = Java.Util.Locale.GetAvailableLocales().ToList();
             foreach (var locale in localesAvailable)
             {
                 var res = tts.IsLanguageAvailable(locale);
@@ -64,15 +64,18 @@ namespace Pronounce
 
             listLanguages.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
         {
-            lang = Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == langAvailable[(int)e.Id]);
+            lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == langAvailable[(int)e.Id]);
             var languageSelected = langAvailable[(int)e.Id];
             Toast.MakeText(this, languageSelected, ToastLength.Long).Show();
+            Helpers.Settings.Language = lang.ToString();
+
 
             // if we get an error, default to the default language
             if (status == OperationResult.Error)
-                tts.SetLanguage(Locale.Default);
+                tts.SetLanguage(Java.Util.Locale.Default);
             // if the listener is ok, set the lang
             if (status == OperationResult.Success)
+
                 tts.SetLanguage(lang);
 
             mDrawerLayout.CloseDrawers();
