@@ -205,6 +205,8 @@
        android:divider="@android:color/transparent"
        android:dividerHeight="0dp"
        android:listSelector="#FFC107"
+       style="@style/Widget.AppCompat.Button.Borderless"
+       android:theme="@style/MenuButton"
        android:id="@+id/listoflanguages">
       </ListView>
   </android.support.design.widget.NavigationView>

@@ -13,6 +13,10 @@
         <item name="colorPrimaryDark">#184C62</item>
         <item name="colorAccent">#FFC107</item>
         <item name="colorControlHighlight">#FFC107</item>
-        
+       
       </style>
+  
+  <style name="MenuButton" parent="Theme.AppCompat.Light">
+          <item name="colorControlHighlight">#FFC107</item>
+        </style>
 </resources>
