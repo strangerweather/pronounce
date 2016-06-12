@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Android.Util;
 using Java.Lang;
+using System.Threading.Tasks;
 
 namespace Pronounce
 {
@@ -62,7 +63,7 @@ namespace Pronounce
             var adapter2 = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, langAvailable);
             listLanguages.Adapter = adapter2;
 
-            listLanguages.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
+            listLanguages.ItemClick += async (object sender, AdapterView.ItemClickEventArgs e) =>
         {
             lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == langAvailable[(int)e.Id]);
             var languageSelected = langAvailable[(int)e.Id];
@@ -75,6 +76,7 @@ namespace Pronounce
             if (status == OperationResult.Success)
                 tts.SetLanguage(lang);
 
+            await Task.Delay(500);
             mDrawerLayout.CloseDrawers();
 
         };
