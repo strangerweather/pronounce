@@ -38,7 +38,7 @@ namespace Pronounce
 
             //Get available languages
             var langAvailable = new List<string>();
-            var localesAvailable = Java.Util.Locale.GetAvailableLocales().ToList();
+            var localesAvailable = Locale.GetAvailableLocales().ToList();
             foreach (var locale in localesAvailable)
             {
                 var res = tts.IsLanguageAvailable(locale);
@@ -64,13 +64,13 @@ namespace Pronounce
 
             listLanguages.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
         {
-            lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == langAvailable[(int)e.Id]);
+            lang = Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == langAvailable[(int)e.Id]);
             var languageSelected = langAvailable[(int)e.Id];
             Toast.MakeText(this, languageSelected, ToastLength.Long).Show();
 
             // if we get an error, default to the default language
             if (status == OperationResult.Error)
-                tts.SetLanguage(Java.Util.Locale.Default);
+                tts.SetLanguage(Locale.Default);
             // if the listener is ok, set the lang
             if (status == OperationResult.Success)
                 tts.SetLanguage(lang);
