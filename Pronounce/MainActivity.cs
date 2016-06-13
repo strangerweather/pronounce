@@ -108,6 +108,7 @@ namespace Pronounce
             Android.App.ActionBar ab = ActionBar;
             ab.SetHomeAsUpIndicator(Resource.Drawable.ic_menu1);
             ab.SetDisplayHomeAsUpEnabled(true);
+            
 
             //History
             var listView = FindViewById<ListView>(Resource.Id.listView1);

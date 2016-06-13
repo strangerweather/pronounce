@@ -2,17 +2,14 @@
 
 <resources>
 
-    <style name="Pronounce" parent="Theme.Base">
-  
-  
-  
-    </style>
+    <style name="Pronounce" parent="Theme.Base"></style>
 
       <style name="Theme.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#183C62</item>
         <item name="colorPrimaryDark">#184C62</item>
         <item name="colorAccent">#FFC107</item>
         <item name="colorControlHighlight">#FFC107</item>
-        
+        <item name="android:windowTranslucentStatus">true</item>
       </style>
+
 </resources>
