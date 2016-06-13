@@ -36,6 +36,9 @@ namespace Pronounce
         void TextToSpeech.IOnInitListener.OnInit(OperationResult status)
         {
             Toast.MakeText(this, Pronounce.Helpers.Settings.Language, ToastLength.Long).Show();
+            lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == Helpers.Settings.Language);
+            tts.SetLanguage(lang);
+
             //Get available languages
             var langAvailable = new List<string>();
             var localesAvailable = Java.Util.Locale.GetAvailableLocales().ToList();
@@ -64,24 +67,23 @@ namespace Pronounce
 
             listLanguages.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
         {
-            lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == langAvailable[(int)e.Id]);
-            var languageSelected = langAvailable[(int)e.Id];
-            Toast.MakeText(this, languageSelected, ToastLength.Long).Show();
-            Helpers.Settings.Language = lang.ToString();
-
+            Helpers.Settings.Language = langAvailable[(int)e.Id];
+            Toast.MakeText(this, Helpers.Settings.Language, ToastLength.Long).Show();
 
             // if we get an error, default to the default language
             if (status == OperationResult.Error)
                 tts.SetLanguage(Java.Util.Locale.Default);
             // if the listener is ok, set the lang
             if (status == OperationResult.Success)
-
+            {
+                lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == Helpers.Settings.Language);
                 tts.SetLanguage(lang);
+            }
+                
 
             mDrawerLayout.CloseDrawers();
-
         };
-        }
+   }
 
 
         protected override void OnCreate(Bundle bundle)
