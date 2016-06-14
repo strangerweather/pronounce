@@ -40,6 +40,8 @@ namespace Pronounce
         // Interface method required for IOnInitListener
         void TextToSpeech.IOnInitListener.OnInit(OperationResult status)
         {
+            Button languageButton = FindViewById<Button>(Resource.Id.languageButton);
+            languageButton.Text = Pronounce.Helpers.Settings.Language;
             Toast.MakeText(this, Pronounce.Helpers.Settings.Language, ToastLength.Long).Show();
             lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == Helpers.Settings.Language);
             tts.SetLanguage(lang);
@@ -83,6 +85,7 @@ namespace Pronounce
             {
                 lang = Java.Util.Locale.GetAvailableLocales().FirstOrDefault(t => t.DisplayLanguage == Helpers.Settings.Language);
                 tts.SetLanguage(lang);
+                languageButton.Text = Pronounce.Helpers.Settings.Language;
             }
 
             await Task.Delay(500);
