@@ -4,12 +4,15 @@ using Android.Widget;
 using Android.OS;
 using Android.Speech.Tts;
 using Android.Support.V7.App;
+using SupportToolbar = Android.Support.V7.Widget.Toolbar;
+using SupportActionBar = Android.Support.V7.App.ActionBar;
 using Android.Views;
 using Android.Media;
 using Android.Content;
 using Android.Support.Design.Widget;
 using Android.Content.Res;
 using Android.Support.V4.Widget;
+using Android.Support.V7.Widget;
 using Java.Util;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +34,7 @@ namespace Pronounce
         List<string> items;
         ArrayAdapter<string> adapter;
         Java.Util.Locale lang;
+        Android.Support.V7.Widget.Toolbar toolbar;
 
 
         // Interface method required for IOnInitListener
@@ -101,15 +105,13 @@ namespace Pronounce
                 Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
             }
 
-            var toolbar = FindViewById<Toolbar>(Resource.Id.my_toolbar);
-            //Toolbar will now take on default Action Bar characteristics
-            SetActionBar(toolbar);
-            //You can now use and reference the ActionBar
-            ActionBar.Title = "Pronounce";
-            Android.App.ActionBar ab = ActionBar;
+            SupportToolbar toolBar = FindViewById<SupportToolbar>(Resource.Id.my_toolbar);
+            SetSupportActionBar(toolBar);
+            SupportActionBar.Title = "Pronounce";
+            SupportActionBar ab = SupportActionBar;
             ab.SetHomeAsUpIndicator(Resource.Drawable.ic_menu1);
             ab.SetDisplayHomeAsUpEnabled(true);
-            
+
 
             //History
             var listView = FindViewById<ListView>(Resource.Id.listView1);

@@ -10,7 +10,11 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
-        <Toolbar
+      <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+        <android.support.v7.widget.Toolbar
             android:id="@+id/my_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,6 +24,7 @@
             android:titleTextColor="#ffffffff"
             android:title="@string/ApplicationName"
             app:layout_scrollFlags="scroll|enterAlways" />
+      </android.support.design.widget.AppBarLayout>
         <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
