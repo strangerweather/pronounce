@@ -1894,10 +1894,13 @@ namespace Pronounce
 			public const int landscape = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int my_buttons = 2130837587;
+			public const int Languages_Poster = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int notification_template_icon_bg = 2130837588;
+			public const int my_buttons = 2130837588;
+			
+			// aapt resource value: 0x7f020055
+			public const int notification_template_icon_bg = 2130837589;
 			
 			static Drawable()
 			{

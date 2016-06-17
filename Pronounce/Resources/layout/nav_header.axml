@@ -8,6 +8,6 @@
         android:id="@+id/imgViewHeader"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/landscape"
+        android:src="@drawable/Languages_Poster"
         android:scaleType="centerCrop" />
 </FrameLayout>

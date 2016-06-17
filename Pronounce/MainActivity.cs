@@ -110,10 +110,14 @@ namespace Pronounce
 
             SupportToolbar toolBar = FindViewById<SupportToolbar>(Resource.Id.my_toolbar);
             SetSupportActionBar(toolBar);
-            SupportActionBar.Title = "Pronounce";
+            //SupportActionBar.Title = "Pronounce";
             SupportActionBar ab = SupportActionBar;
             ab.SetHomeAsUpIndicator(Resource.Drawable.ic_menu1);
             ab.SetDisplayHomeAsUpEnabled(true);
+
+            CollapsingToolbarLayout collapsingToolbar =
+            (CollapsingToolbarLayout)FindViewById(Resource.Id.collapsing_toolbar);
+            collapsingToolbar.Title = "Pronounce";
 
 
             //History
