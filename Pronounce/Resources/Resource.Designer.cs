@@ -1969,6 +1969,9 @@ namespace Pronounce
 			// aapt resource value: 0x7f06001e
 			public const int always = 2131099678;
 			
+			// aapt resource value: 0x7f060073
+			public const int appbar = 2131099763;
+			
 			// aapt resource value: 0x7f06001b
 			public const int beginning = 2131099675;
 			
@@ -2020,8 +2023,8 @@ namespace Pronounce
 			// aapt resource value: 0x7f06001f
 			public const int collapseActionView = 2131099679;
 			
-			// aapt resource value: 0x7f060073
-			public const int collapsing_toolbar = 2131099763;
+			// aapt resource value: 0x7f060074
+			public const int collapsing_toolbar = 2131099764;
 			
 			// aapt resource value: 0x7f06004a
 			public const int contentPanel = 2131099722;
@@ -2170,8 +2173,8 @@ namespace Pronounce
 			// aapt resource value: 0x7f060096
 			public const int my_custom_toast = 2131099798;
 			
-			// aapt resource value: 0x7f060074
-			public const int my_toolbar = 2131099764;
+			// aapt resource value: 0x7f060075
+			public const int my_toolbar = 2131099765;
 			
 			// aapt resource value: 0x7f060086
 			public const int nav_view = 2131099782;
@@ -2223,9 +2226,6 @@ namespace Pronounce
 			
 			// aapt resource value: 0x7f06004c
 			public const int scrollView = 2131099724;
-			
-			// aapt resource value: 0x7f060075
-			public const int scrollView1 = 2131099765;
 			
 			// aapt resource value: 0x7f060039
 			public const int scrollable = 2131099705;
