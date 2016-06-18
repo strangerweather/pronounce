@@ -218,6 +218,20 @@ android:fitsSystemWindows="true">
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin ="20dp">
+            
+                                    <TextView
+            android:text="Pitch"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:gravity="left"
+            android:textColor="#212121"
+            android:layout_gravity="left"
+            android:textSize="15dp"
+            android:layout_above="@+id/seekPitch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"/>
           
             <TextView
             android:text="Pitch"
@@ -238,6 +252,20 @@ android:fitsSystemWindows="true">
             android:thumbTint="#FFC107"
             android:layout_below="@id/textPitch"
             android:max="255"/>
+            
+                        <TextView
+            android:text="Speed"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:gravity="left"
+            android:textColor="#212121"
+            android:layout_gravity="left"
+            android:textSize="15dp"
+            android:layout_above="@+id/seekSpeed"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"/>
           
             <TextView
             android:text="Speed"

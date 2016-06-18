@@ -1981,8 +1981,8 @@ namespace Pronounce
 			// aapt resource value: 0x7f06002a
 			public const int bottom = 2131099690;
 			
-			// aapt resource value: 0x7f060085
-			public const int bottom_sheet = 2131099781;
+			// aapt resource value: 0x7f060087
+			public const int bottom_sheet = 2131099783;
 			
 			// aapt resource value: 0x7f06007c
 			public const int button1 = 2131099772;
@@ -2107,8 +2107,8 @@ namespace Pronounce
 			// aapt resource value: 0x7f060038
 			public const int @fixed = 2131099704;
 			
-			// aapt resource value: 0x7f060087
-			public const int frameLayout1 = 2131099783;
+			// aapt resource value: 0x7f060088
+			public const int frameLayout1 = 2131099784;
 			
 			// aapt resource value: 0x7f060005
 			public const int home = 2131099653;
@@ -2269,8 +2269,8 @@ namespace Pronounce
 			// aapt resource value: 0x7f060082
 			public const int seekPitch = 2131099778;
 			
-			// aapt resource value: 0x7f060084
-			public const int seekSpeed = 2131099780;
+			// aapt resource value: 0x7f060085
+			public const int seekSpeed = 2131099781;
 			
 			// aapt resource value: 0x7f060068
 			public const int select_dialog_listview = 2131099752;
@@ -2329,23 +2329,23 @@ namespace Pronounce
 			// aapt resource value: 0x7f060095
 			public const int text2 = 2131099797;
 			
-			// aapt resource value: 0x7f060081
-			public const int textPitch = 2131099777;
+			// aapt resource value: 0x7f060083
+			public const int textPitch = 2131099779;
 			
 			// aapt resource value: 0x7f06004d
 			public const int textSpacerNoButtons = 2131099725;
 			
-			// aapt resource value: 0x7f060083
-			public const int textSpeed = 2131099779;
+			// aapt resource value: 0x7f060086
+			public const int textSpeed = 2131099782;
 			
 			// aapt resource value: 0x7f060077
 			public const int textView1 = 2131099767;
 			
-			// aapt resource value: 0x7f060086
-			public const int textView2 = 2131099782;
+			// aapt resource value: 0x7f060081
+			public const int textView2 = 2131099777;
 			
-			// aapt resource value: 0x7f060088
-			public const int textView3 = 2131099784;
+			// aapt resource value: 0x7f060084
+			public const int textView3 = 2131099780;
 			
 			// aapt resource value: 0x7f060093
 			public const int time = 2131099795;
