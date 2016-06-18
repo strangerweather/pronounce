@@ -235,9 +235,9 @@ android:fitsSystemWindows="true">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/seekBar2"
-            android:thumbTint="#f5f5dcff"
+            android:thumbTint="#FFC107"
             android:layout_below="@id/textView2"
-            android:max="100" />
+            android:max="100"/>
           
             <TextView
             android:text="Speed"
@@ -256,7 +256,7 @@ android:fitsSystemWindows="true">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/seekBar3"
-            android:thumbTint="#f5f5dcff"
+            android:thumbTint="#FFC107"
             android:max="100"
             android:layout_below="@id/textView3"/>
           </RelativeLayout>
