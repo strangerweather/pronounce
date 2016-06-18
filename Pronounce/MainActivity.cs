@@ -134,7 +134,6 @@ namespace Pronounce
             };
 
 
-
             //Drawer
             mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
 
@@ -168,6 +167,42 @@ namespace Pronounce
             Button dbutton = FindViewById<Button>(Resource.Id.MyButton);
             Button clear_button = FindViewById<Button>(Resource.Id.button1);
             editText = FindViewById<EditText>(Resource.Id.editText1);
+
+
+            //Pitch and Speed
+            var txtSpeedVal = FindViewById<TextView>(Resource.Id.textSpeed);
+            var txtPitchVal = FindViewById<TextView>(Resource.Id.textPitch);
+            var seekSpeed = FindViewById<SeekBar>(Resource.Id.seekSpeed);
+            var seekPitch = FindViewById<SeekBar>(Resource.Id.seekPitch);
+
+            // set up the initial pitch and speed values then the onscreen values
+            // the pitch and rate both go from 0f to 1f, however if you have a seek bar with a max of 1, you get a single step
+            // therefore, a simpler option is to have the slider go from 0 to 255 and divide the position of the slider by 255 to get
+            // the float
+            seekSpeed.Progress = seekPitch.Progress = 255;
+            txtSpeedVal.Text = "1";
+            txtPitchVal.Text = "1";
+
+            // set the speed and pitch
+            tts.SetPitch(1.0f);
+            tts.SetSpeechRate(1.0f);
+
+            // sliders
+            seekPitch.StopTrackingTouch += (object sender, SeekBar.StopTrackingTouchEventArgs e) =>
+            {
+                var seek = sender as SeekBar;
+                var progress = seek.Progress / 255f;
+                tts.SetPitch(progress);
+                txtPitchVal.Text = progress.ToString("F2");
+            };
+            seekSpeed.StopTrackingTouch += (object sender, SeekBar.StopTrackingTouchEventArgs e) =>
+            {
+                var seek = sender as SeekBar;
+                var progress = seek.Progress / 255f;
+                tts.SetSpeechRate(progress);
+                txtSpeedVal.Text = progress.ToString("F2");
+            };
+
 
 
             //Bottom sheet
