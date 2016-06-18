@@ -208,11 +208,59 @@ android:fitsSystemWindows="true">
         android:layout_width="fill_parent"
         android:layout_height="245dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="60dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         app:cardElevation="4dp">
+          
+          <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin ="20dp">
+          
+            <TextView
+            android:text="Pitch"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:gravity="left"
+            android:textColor="#212121"
+            android:layout_gravity="left"
+            android:layout_marginTop="20dp"
+            android:textSize="15dp" />
+
+            <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar2"
+            android:thumbTint="#f5f5dcff"
+            android:layout_below="@id/textView2"
+            android:max="100" />
+          
+            <TextView
+            android:text="Speed"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:gravity="left"
+            android:textColor="#212121"
+            android:layout_gravity="left"
+            android:textSize="15dp"
+            android:layout_below="@id/seekBar2"
+            android:layout_marginTop="60dp"/>
+
+            <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar3"
+            android:thumbTint="#f5f5dcff"
+            android:max="100"
+            android:layout_below="@id/textView3"/>
+          </RelativeLayout>
+        
         </android.support.v7.widget.CardView>
         </TableLayout>
       </LinearLayout>
